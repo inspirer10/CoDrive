@@ -1,26 +1,30 @@
 .header {
     padding: 15vh 0 12.5vh;
     position: relative;
+
     &__container {
-        width: 85%;
+        width: 90%;
         margin: 0 auto;
     }
+
     &__card {
-        background: rgba(250, 250, 250, 0.8);
-        border: 1px solid rgba(79, 70, 229, 0.15);
+        background: var(--surface-light);
+        border: 1px solid var(--border-primary);
         border-radius: 24px;
         padding: 2.5rem 2rem;
         display: flex;
         gap: 2rem;
         align-items: center;
-        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+        box-shadow: var(--shadow-lg);
         backdrop-filter: blur(10px);
     }
+
     &__content {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
     }
+
     &__eyebrow {
         font-family: var(--font-secondary);
         color: var(--primary);
@@ -29,27 +33,29 @@
         letter-spacing: 0.075em;
         text-transform: uppercase;
     }
+
     h1 {
         text-wrap: balance;
         font-size: 3.75rem;
         font-weight: 600;
-        color: #0f172a;
+        color: var(--primary-900);
         line-height: 1.25;
         letter-spacing: -0.03em;
     }
+
     &__lead {
         font-size: 20px;
         line-height: 1.5;
         color: var(--text-muted);
         max-width: 45ch;
-        // font-style: italic;
-        //text-wrap: balance;
     }
+
     &__actions {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
     }
+
     .btn {
         font-family: var(--font-heading);
         font-size: 18px;
@@ -63,37 +69,61 @@
         justify-content: center;
         gap: 0.75rem;
         cursor: pointer;
-        transition: 0.225s ease;
+        transition: 0.25s ease;
+
         &--primary {
             background: var(--primary);
             color: var(--white);
             border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25);
+
             &:hover {
                 background: var(--primary-hover);
                 border-color: var(--primary-hover);
+                transform: translateY(-2px);
+                box-shadow: 0 12px 32px rgba(79, 70, 229, 0.35);
+            }
+
+            &:active {
+                transform: translateY(0) scale(0.97);
+                box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+                transition: 0.1s ease;
             }
         }
+
         &--secondary {
             background: transparent;
             color: var(--primary);
-            border-color: rgba(79, 70, 229, 0.35);
+            border-color: var(--primary-200);
+
             &:hover {
-                background: rgba(79, 70, 229, 0.12);
+                background: var(--primary-50);
+                border-color: var(--primary-300);
+            }
+
+            &:active {
+                transform: scale(0.97);
+                background: var(--primary-100);
+                transition: 0.1s ease;
             }
         }
     }
+
     &__details {
         margin-top: 0.75rem;
         display: flex;
         flex-direction: column;
         gap: 1.25rem;
         padding: 1.5rem 1.5rem;
-        background: rgba(79, 70, 229, 0.075);
+        background: var(--surface-primary);
         border-radius: 16px;
+        border: 1px solid var(--border-primary);
+
         .detail {
             display: flex;
             flex-direction: column;
             gap: 0.375rem;
+
             .detail__label {
                 font-size: 0.875rem;
                 text-transform: uppercase;
@@ -101,33 +131,43 @@
                 color: var(--primary);
                 font-weight: 600;
             }
+
             .detail__value {
                 font-size: 1rem;
                 letter-spacing: -0.015em;
-                color: #1f2937;
+                color: var(--text-secondary);
             }
         }
     }
+
     &__media {
         display: flex;
         justify-content: center;
         flex: 1;
+
         .media__frame {
             width: 100%;
             max-width: 420px;
-            background: rgba(15, 23, 42, 0.04);
+            background: var(--gray-100);
             border-radius: 20px;
             padding: 1.5rem;
             position: relative;
-            border: 1px solid rgba(15, 23, 42, 0.08);
+            border: 1px solid var(--border-light);
         }
+
         .media__photo {
             width: 100%;
             aspect-ratio: 4 / 3;
             border-radius: 16px;
-            background: linear-gradient(120deg, #dbeafe, #e0f2fe 45%, #bbf7d0);
+            background: linear-gradient(
+                135deg, 
+                var(--primary-100), 
+                var(--accent-100) 50%, 
+                var(--accent-200)
+            );
             position: relative;
             overflow: hidden;
+
             &::after {
                 content: '';
                 position: absolute;
@@ -136,22 +176,23 @@
                 height: 60%;
                 border-radius: 28px;
                 background: rgba(255, 255, 255, 0.55);
-                box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+                box-shadow: var(--shadow-md);
                 transform: rotate(-3deg);
             }
         }
+
         .media__badge {
             position: absolute;
             bottom: 1.25rem;
             left: 1.25rem;
             padding: 0.75rem 0.875rem;
             background: var(--white);
-            color: #0f172a;
+            color: var(--primary-900);
             font-size: 0.875rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             border-radius: 999px;
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+            box-shadow: var(--shadow-md);
         }
     }
 }
@@ -161,9 +202,11 @@
         &__card {
             flex-direction: column;
         }
+
         &__lead {
             max-width: 100%;
         }
+
         &__media {
             justify-content: flex-start;
             width: 100%;
@@ -174,12 +217,19 @@
 @media (max-width: 640px) {
     .header {
         padding: 14vh 0 10vh;
+
         &__container {
             width: 90%;
         }
+
         &__card {
             padding: 2rem;
         }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
         .btn {
             width: 100%;
             justify-content: center;

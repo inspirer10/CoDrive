@@ -1,11 +1,16 @@
 :root {
+    // TYPOGRAPHY
     --font-primary: "Inter", sans-serif;
     --font-heading: "Outfit", sans-serif;
     --font-secondary: "Space Grotesk", sans-serif;
+
+
+    // BASE COLORS
     --background: rgb(242, 250, 255);
     --white: rgb(250, 250, 250);
     --black: rgb(12, 12, 12);
-    // Brand colors
+
+ /*
     --primary: #4f46e5; // Soczysty indygo - budzi zaufanie, techniczny
     --primary-hover: #1f11bd;
     --accent: #10b981; // Szmaragdowa zieleń - sugeruje oszczędność pieniędzy i ekologię
@@ -16,6 +21,73 @@
         --accent: #84cc16; // Elektryczna limonka - bardzo "eye-catching", rzuca się w oczy
         --text-muted: #94a3b8;
     */
+
+
+    
+    // PRIMARY BRAND – Indigo (Trust, Technology, Premium)
+    --primary-50: #eef2ff;
+    --primary-100: #e0e7ff;
+    --primary-200: #c7d2fe;
+    --primary-300: #a5b4fc;
+    --primary-400: #818cf8;
+    --primary: #4f46e5;           // Main brand color
+    --primary-600: #4338ca;
+    --primary-hover: #3730a3;     // Darker for hover states
+    --primary-800: #1e1b4b;
+    --primary-900: #0f172a;       // Deepest shade for text/headings
+
+
+    // ACCENT – Emerald/Teal (Savings, Eco-friendly, Growth)
+    --accent-50: #ecfdf5;
+    --accent-100: #d1fae5;
+    --accent-200: #a7f3d0;
+    --accent-300: #6ee7b7;
+    --accent-400: #34d399;
+    --accent: #10b981;            // Main accent color
+    --accent-600: #059669;
+    --accent-hover: #047857;      // Darker for hover states
+    --accent-800: #065f46;
+    --accent-gradient: linear-gradient(135deg, #2aa37e 0%, #2a8ea0 100%);
+
+
+    // NEUTRAL GRAYS – For text, borders, backgrounds
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+
+   
+    // SEMANTIC TEXT COLORS
+    --text-primary: #0f172a;      // Headings, important text
+    --text-secondary: #1f2937;    // Body text
+    --text-muted: #64748b;        // Descriptions, meta info
+    --text-light: #94a3b8;        // Placeholders, disabled
+    --text-inverse: #f8fafc;      // Text on dark backgrounds
+
+  
+    // UI ELEMENT COLORS
+    --border-light: rgba(15, 23, 42, 0.08);
+    --border-default: rgba(15, 23, 42, 0.12);
+    --border-primary: rgba(79, 70, 229, 0.15);
+    --border-accent: rgba(16, 185, 129, 0.25);
+
+    --surface-light: rgba(250, 250, 250, 0.8);
+    --surface-muted: #f4f2ee;
+    --surface-primary: rgba(79, 70, 229, 0.075);
+    --surface-accent: rgba(16, 185, 129, 0.12);
+
+ 
+    // SHADOWS
+    --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
+    --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
+    --shadow-accent: 0 12px 24px rgba(16, 185, 129, 0.25);
 }
 
 html,
