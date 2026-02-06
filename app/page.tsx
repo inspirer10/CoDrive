@@ -1,7 +1,15 @@
+import About from './Components/About/About';
+import Footer from './Components/Footer/Footer';
+import Header from './Components/Header/Header';
+import Navbar from './Components/Navbar/Navbar';
+
 export default function Home() {
     return (
-        <div>
-            <h1>CoDrive</h1>
-        </div>
+        <>
+            <Navbar />
+            <Header />
+            <About />
+            <Footer />
+        </>
     );
 }

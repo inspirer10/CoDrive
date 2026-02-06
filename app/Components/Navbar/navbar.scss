@@ -1,0 +1,76 @@
+.navbar {
+    background-color: rgba(242, 250, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 0.75rem 2.5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 90%;
+    margin: 1.5vh auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    transform: translateY(0);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    will-change: transform;
+    &.nav--hidden {
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .logo {
+        font-family: var(--font-secondary);
+        color: var(--primary);
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        .icon {
+            font-size: 2rem;
+        }
+    }
+    ul {
+        font-family: var(--font-heading);
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        li {
+            padding: 0.5rem 1.75rem;
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: .125s ease;
+            &:hover {
+                border-color: var(--accent);
+                color: var(--primary-hover);
+            }
+        }
+    }
+    button {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--white);
+        background: var(--accent);
+        border: 2px solid var(--accent);
+        border-radius: 20px;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        transition: .2s ease;
+        &:hover {
+            background-color: white;
+            color: #333;
+        }
+    }
+}
