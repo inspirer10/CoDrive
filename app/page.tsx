@@ -1,4 +1,5 @@
 import About from './Components/About/About';
+import AvailableRides from './Components/AvailableRides/AvailableRides';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
@@ -9,6 +10,7 @@ export default function Home() {
             <Navbar />
             <Header />
             <About />
+            <AvailableRides />
             <Footer />
         </>
     );
