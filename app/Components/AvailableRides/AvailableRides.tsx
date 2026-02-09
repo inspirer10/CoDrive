@@ -168,7 +168,7 @@ const ridesData: Ride[] = [
 
 function AvailableRides() {
     return (
-        <section className='available-rides'>
+        <section className='available-rides' id='listings'>
             <div className='available-rides__container'>
                 <div className='available-rides__header'>
                     <h2>Available Rides</h2>
