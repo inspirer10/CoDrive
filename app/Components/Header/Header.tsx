@@ -1,5 +1,6 @@
 import React from 'react';
 import './header.scss';
+import Image from 'next/image';
 
 function Header() {
     return (
@@ -49,7 +50,16 @@ function Header() {
 
                     <div className='header__media' aria-hidden='true'>
                         <div className='media__frame'>
-                            <div className='media__photo' />
+                            {/*   <div className='media__photo' /> */}
+                            <Image
+                                className='media__image'
+                                src='/header.jpg'
+                                alt='Image'
+                                width={600}
+                                height={500}
+                                quality={90}
+                            />
+
                             <div className='media__badge'>
                                 Trusted routes in your area
                             </div>

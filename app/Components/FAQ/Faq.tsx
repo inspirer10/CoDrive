@@ -41,10 +41,10 @@ function Faq() {
                 </aside>
 
                 <article className='faq__right'>
-                    {faqData.map((item, index) => (
+                    {faqData.map(({question, answer}, index) => (
                         <div key={index} className='faq__item'>
-                            <h3 className='faq__question'>{item.question}</h3>
-                            <p className='faq__answer'>{item.answer}</p>
+                            <h3 className='faq__question'>{question}</h3>
+                            <p className='faq__answer'>{answer}</p>
                         </div>
                     ))}
                 </article>

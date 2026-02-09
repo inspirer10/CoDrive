@@ -13,13 +13,13 @@ function Navbar() {
 
     const handleSectionRouting = (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-        section: string
+        section: string,
     ) => {
         e.preventDefault();
 
         if (lenis) {
             lenis.scrollTo(`#${section}`, {
-               //offset: -80, // Offset for fixed navbar height
+                //offset: -80, // Offset for fixed navbar height
                 duration: 1.2,
             });
         } else {
@@ -75,8 +75,8 @@ function Navbar() {
                 <li onClick={(e) => handleSectionRouting(e, 'how-it-works')}>
                     How it Works
                 </li>
-                <li onClick={(e) => handleSectionRouting(e, 'contact')}>
-                    Contact
+                <li onClick={(e) => handleSectionRouting(e, 'stories')}>
+                    Stories
                 </li>
                 <li onClick={(e) => handleSectionRouting(e, 'faq')}>FAQ</li>
             </ul>
