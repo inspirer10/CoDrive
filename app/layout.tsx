@@ -22,8 +22,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-    title: 'CoDrive - Carpooling App',
-    description: 'Carpooling App for easy and affordable ridesharing.',
+    title: 'CoDrive - Carpooling',
+    description: 'Carpooling for easy and affordable ridesharing.',
 };
 
 export default function RootLayout({

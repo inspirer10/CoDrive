@@ -10,13 +10,14 @@ import {
 } from 'react-icons/fi';
 
 import './footer.scss';
+import Image from 'next/image';
 
 function Footer() {
     return (
         <footer className='footer'>
             <div className='footer__container'>
                 <section className='footer__contact'>
-                    <article className='footer__contact-left'>
+                    <aside className='footer__contact-left'>
                         <span className='footer__eyebrow'>Contact</span>
                         <h2>Get in touch with us</h2>
                         <p className='footer__lead'>
@@ -69,11 +70,17 @@ function Footer() {
                                 </div>
                             </article>
                         </div>
-                    </article>
+                    </aside>
 
                     <aside className='footer__contact-right' aria-hidden='true'>
                         <div className='footer__map'>
-                            <div className='footer__map-overlay' />
+                            <Image
+                                src={'/map.jpg'}
+                                height={500}
+                                width={600}
+                                quality={90}
+                                alt='alt'
+                            />
                         </div>
                     </aside>
                 </section>
@@ -158,7 +165,7 @@ function Footer() {
                 </section>
 
                 <div className='footer__bottom'>
-                    <span>© 2025 CoDrive. All rights reserved.</span>
+                    <span>© 2026 CoDrive. All rights reserved.</span>
                     <nav className='footer__legal' aria-label='Legal'>
                         <a className='footer__link' href='#'>
                             Privacy policy

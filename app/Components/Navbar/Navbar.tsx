@@ -69,11 +69,11 @@ function Navbar() {
 
             <ul>
                 <li onClick={(e) => handleSectionRouting(e, 'about')}>About</li>
-                <li onClick={(e) => handleSectionRouting(e, 'listings')}>
-                    Listings
-                </li>
                 <li onClick={(e) => handleSectionRouting(e, 'how-it-works')}>
                     How it Works
+                </li>
+                <li onClick={(e) => handleSectionRouting(e, 'listings')}>
+                    Listings
                 </li>
                 <li onClick={(e) => handleSectionRouting(e, 'stories')}>
                     Stories

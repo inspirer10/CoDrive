@@ -12,9 +12,9 @@ export default function Home() {
         <>
             <Navbar />
             <Header />
-            <About />
-            <AvailableRides />
             <HowItWorks />
+            <AvailableRides />
+            <About />
             <Stories />
             <Faq />
             <Footer />

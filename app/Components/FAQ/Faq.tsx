@@ -26,22 +26,20 @@ const faqData = [
     },
 ];
 
-
-
 function Faq() {
     return (
         <section className='faq' id='faq'>
             <div className='faq__container'>
                 <aside className='faq__left'>
                     <h2>FAQ</h2>
-                    <p className='faq__subtitle'>
+                    <p className='subtitle'>
                         Find answers to common questions about using CoDrive
                     </p>
-                    <button className='faq__btn'>Contact us</button>
+                    <button className='btn'>Contact us</button>
                 </aside>
 
                 <article className='faq__right'>
-                    {faqData.map(({question, answer}, index) => (
+                    {faqData.map(({ question, answer }, index) => (
                         <div key={index} className='faq__item'>
                             <h3 className='faq__question'>{question}</h3>
                             <p className='faq__answer'>{answer}</p>
