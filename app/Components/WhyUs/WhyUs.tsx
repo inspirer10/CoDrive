@@ -9,21 +9,21 @@ const features = [
         description:
             'Set the route, times, and weekdays. Add a photo and your contact details.',
         link: 'Learn more',
-        image: '/how-it-works-1.jpg',
+        image: '/features1.jpg',
     },
     {
         title: 'Filter rides by your needs',
         description:
             'Search by route, departure time, and weekdays. Find the perfect ride.',
         link: 'Learn more',
-        image: '/how-it-works-2.jpg',
+        image: '/features2.jpg',
     },
     {
         title: 'Secure connections between drivers',
         description:
             'Profile verification and user ratings. Share the road with trusted people.',
         link: 'Learn more',
-        image: '/how-it-works-3.jpg',
+        image: '/features3.jpg',
     },
 ];
 

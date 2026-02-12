@@ -58,6 +58,7 @@ function Header() {
                                 width={600}
                                 height={500}
                                 quality={90}
+                                priority
                             />
 
                             <div className='media__badge'>
