@@ -1,0 +1,180 @@
+.highlights {
+    padding: 10vh 0 12.5vh;
+    background: var(--background);
+    &__container {
+        width: 90%;
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+    &__layout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+    }
+    &__media {
+        display: flex;
+        justify-content: center;
+    }
+    &__frame {
+        //  width: min(520px, 100%);
+        max-width: 525px;
+        aspect-ratio: 1 / 1.2;
+        border-radius: 20px;
+        background: var(--gray-100);
+        border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+    &__content {
+        //max-width: 520px;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    &__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        max-width: 500px;
+    }
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+            font-size: 2.25rem;
+        }
+    }
+    &__title {
+        font-family: var(--font-secondary);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+        line-height: 1.5;
+    }
+    &__text {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        //text-wrap: balance;
+    }
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    &__primary {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 600;
+        padding: 0.5rem 2rem;
+        border-radius: 50px;
+        border: 2px solid var(--primary);
+        background: var(--primary);
+        color: var(--white);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.25s ease;
+        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25);
+        &:hover {
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(79, 70, 229, 0.35);
+        }
+        &:active {
+            transform: translateY(0) scale(0.97);
+            transition: 0.1s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+        }
+    }
+    &__link {
+        border: none;
+        background: transparent;
+        color: var(--text-secondary);
+        font-size: 1.125rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        padding: 0;
+        transition: 0.225s ease;
+        svg {
+            font-size: 1rem;
+        }
+        &:hover {
+            color: var(--primary);
+            transform: translateX(2px);
+        }
+        &:active {
+            color: var(--primary-hover);
+            transform: translateX(0);
+            transition: 0.1s ease;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .highlights {
+        &__layout {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        &__content {
+            max-width: 100%;
+        }
+        &__frame {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .highlights {
+        padding: 9vh 0;
+        &__title {
+            font-size: 1.05rem;
+        }
+        &__text {
+            font-size: 0.98rem;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .highlights {
+        &__container {
+            width: 90%;
+        }
+        &__actions {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        &__primary,
+        &__link {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
