@@ -7,6 +7,7 @@ import Highlights from './Components/Highlights/Highlights';
 import HowItWorks from './Components/HowItWorks/HowItWorks';
 import Navbar from './Components/Navbar/Navbar';
 import Stories from './Components/Stories/Stories';
+import Testimonials from './Components/Testimonials/Testimonials';
 import WhyUs from './Components/WhyUs/WhyUs';
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
             <HowItWorks />
             <AvailableRides />
             <About />
+            <Testimonials />
             <Stories />
             <Faq />
             <Footer />

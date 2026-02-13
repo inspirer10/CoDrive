@@ -1,0 +1,202 @@
+.testimonials {
+    padding: 10vh 0 12.5vh;
+    background: var(--background);
+    &__container {
+        width: 90%;
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+        margin-bottom: 3rem;
+    }
+    &__eyebrow {
+        font-family: var(--font-secondary);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--primary);
+    }
+    h2 {
+        max-width: 30ch;
+        font-size: 3.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+    }
+    &__subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 55ch;
+    }
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        gap: 1.25rem;
+    }
+    &__card {
+        flex: 1 1 calc(33.333% - 1rem);
+        min-width: 280px;
+        max-width: 400px;
+        background: var(--white);
+        border: 1px solid var(--border-light);
+        border-radius: 16px;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s ease;
+        overflow: hidden;
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-default);
+            .testimonials__badge {
+                background: var(--primary-50);
+                color: var(--primary);
+            }
+        }
+    }
+    &__image {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background-image: var(--testimonial-bg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.35rem 0.65rem;
+        border-radius: 999px;
+        background: var(--gray-100);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-secondary);
+        transition: 0.2s ease;
+        user-select: none;
+    }
+    &__content {
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1.5rem;
+    }
+    &__quote {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: var(--text-muted);
+        line-height: 1.6;
+        text-wrap: balance;
+    }
+    &__footer {
+        margin-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-light);
+    }
+    &__name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--text-primary);
+    }
+    &__role {
+        margin-top: 0.1rem;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+    &__commute {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-family: var(--font-secondary);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--primary);
+        background: var(--primary-50);
+        border-radius: 999px;
+        padding: 0.35rem 0.6rem;
+    }
+    &__commute-icon {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .testimonials {
+        h2 {
+            font-size: 3rem;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .testimonials {
+        &__card {
+            flex: 1 1 calc(50% - 1rem);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 9vh 0;
+        h2 {
+            font-size: 2.2rem;
+        }
+        &__subtitle {
+            font-size: 1.05rem;
+        }
+        &__cards {
+            gap: 1.25rem;
+        }
+        &__card {
+            flex: 1 1 100%;
+            max-width: 480px;
+        }
+        &__image {
+            aspect-ratio: 16 / 10;
+        }
+        &__name {
+            font-size: 1.15rem;
+        }
+        &__role {
+            font-size: 0.85rem;
+        }
+        &__commute {
+            font-size: 0.72rem;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonials {
+        &__container {
+            width: 90%;
+        }
+    }
+}
