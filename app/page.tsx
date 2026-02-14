@@ -15,8 +15,8 @@ export default function Home() {
         <>
             <Navbar />
             <Header />
-            <WhyUs />
             <Highlights />
+            <WhyUs />
             <HowItWorks />
             <AvailableRides />
             <About />

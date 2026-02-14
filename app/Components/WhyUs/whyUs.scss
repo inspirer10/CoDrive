@@ -2,7 +2,7 @@
     padding: 5vh 0 12.5vh;
     background: var(--background);
     &__container {
-        width: 90%;
+        width: 80%;
         max-width: 1800px;
         margin: 0 auto;
     }
@@ -36,13 +36,12 @@
     }
     &__cards {
         display: flex;
-        flex-wrap: wrap;
-        gap: 1.25rem;
+        gap: 1rem;
         justify-content: center;
         align-items: stretch;
     }
     &__card {
-        max-width: 475px;
+        // max-width: 475px;
         position: relative;
         background-image: var(--why-us-bg);
         background-size: cover;
@@ -117,6 +116,7 @@
         color: rgba(248, 250, 252, 0.925);
         line-height: 1.5;
         letter-spacing: -0.025em;
+        text-wrap: balance;
     }
     &__link {
         margin-top: 5rem;

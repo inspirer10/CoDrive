@@ -81,7 +81,7 @@ function Testimonials() {
 
                                 <div className='testimonials__content'>
                                     <p className='testimonials__quote'>
-                                        "{quote}"
+                                        &quot;{quote}&quot;
                                     </p>
                                     <div className='testimonials__footer'>
                                         <div>

@@ -1,15 +1,19 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { BsCarFront } from 'react-icons/bs';
 import { useLenis } from '../LenisProvider/LenisProvider';
+import PostRideModal from '../PostRideModal/PostRideModal';
 
 import './navbar.scss';
 
 function Navbar() {
     const [isHidden, setIsHidden] = useState(false);
+    const [isPostRideOpen, setIsPostRideOpen] = useState(false);
     const lastScrollY = useRef(0);
     const lenis = useLenis();
+    const openPostRideModal = useCallback(() => setIsPostRideOpen(true), []);
+    const closePostRideModal = useCallback(() => setIsPostRideOpen(false), []);
 
     const handleSectionRouting = (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>,
@@ -61,28 +65,40 @@ function Navbar() {
     }, []);
 
     return (
-        <nav className={isHidden ? 'nav--hidden navbar' : 'navbar'}>
-            <p className='logo' onClick={handleScrollToTop}>
-                <BsCarFront className='icon' />
-                CoDrive
-            </p>
+        <>
+            <nav className={isHidden ? 'nav--hidden navbar' : 'navbar'}>
+                <p className='logo' onClick={handleScrollToTop}>
+                    <BsCarFront className='icon' />
+                    CoDrive
+                </p>
 
-            <ul>
-                <li onClick={(e) => handleSectionRouting(e, 'about')}>About</li>
-                <li onClick={(e) => handleSectionRouting(e, 'how-it-works')}>
-                    How it Works
-                </li>
-                <li onClick={(e) => handleSectionRouting(e, 'listings')}>
-                    Listings
-                </li>
-                <li onClick={(e) => handleSectionRouting(e, 'stories')}>
-                    Stories
-                </li>
-                <li onClick={(e) => handleSectionRouting(e, 'faq')}>FAQ</li>
-            </ul>
+                <ul>
+                    <li onClick={(e) => handleSectionRouting(e, 'about')}>
+                        About
+                    </li>
+                    <li onClick={(e) => handleSectionRouting(e, 'how-it-works')}>
+                        How it Works
+                    </li>
+                    <li onClick={(e) => handleSectionRouting(e, 'listings')}>
+                        Listings
+                    </li>
+                    <li onClick={(e) => handleSectionRouting(e, 'stories')}>
+                        Stories
+                    </li>
+                    <li onClick={(e) => handleSectionRouting(e, 'faq')}>FAQ</li>
+                </ul>
 
-            <button>Post a ride</button>
-        </nav>
+                <button
+                    type='button'
+                    onClick={openPostRideModal}
+                    aria-haspopup='dialog'
+                >
+                    Post a ride
+                </button>
+            </nav>
+
+            {isPostRideOpen && <PostRideModal onClose={closePostRideModal} />}
+        </>
     );
 }
 

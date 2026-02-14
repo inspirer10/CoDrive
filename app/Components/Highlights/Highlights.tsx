@@ -35,8 +35,8 @@ function Highlights() {
                             <Image
                                 src='/footer.jpg'
                                 alt='Mapa tras dojazdu'
-                                width={600}
-                                height={600}
+                                width={500}
+                                height={700}
                                 quality={90}
                             />
                         </div>
@@ -71,7 +71,7 @@ function Highlights() {
                                 className='highlights__primary'
                                 type='button'
                             >
-                                Zacznij
+                                Get started
                             </button>
                             <button className='highlights__link' type='button'>
                                 Learn more <FiArrowUpRight />
