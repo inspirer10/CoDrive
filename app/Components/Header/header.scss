@@ -55,17 +55,18 @@
         font-weight: 600;
     }
     &__lead {
+        margin-top: auto;
         font-size: clamp(1rem, 1.2vw, 1.25rem);
         line-height: 1.4;
         color: var(--gray-700);
         max-width: 42ch;
+        letter-spacing: -0.015em;
     }
     &__actions {
         display: flex;
         align-items: center;
         gap: 1rem;
         flex-wrap: wrap;
-        margin-top: auto;
     }
     .btn {
         font-family: var(--font-heading);
@@ -168,7 +169,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: min(80%, 430px);
-        padding: 0.625rem 0.625rem;
+        padding: 0.75rem 0.625rem;
         border-radius: 18px;
         display: flex;
         align-items: center;

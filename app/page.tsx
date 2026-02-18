@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import Highlights from './Components/Highlights/Highlights';
 import HowItWorks from './Components/HowItWorks/HowItWorks';
 import Navbar from './Components/Navbar/Navbar';
+import OurImpact from './Components/OurImpact/OurImpact';
 import Stories from './Components/Stories/Stories';
 import Testimonials from './Components/Testimonials/Testimonials';
 import WhyUs from './Components/WhyUs/WhyUs';
@@ -16,6 +17,7 @@ export default function Home() {
             <Navbar />
             <Header />
             <Highlights />
+            <OurImpact />
             <WhyUs />
             <HowItWorks />
             <AvailableRides />

@@ -22,7 +22,7 @@ function Header() {
                         <p className='header__lead'>
                             Find or post commute rides in seconds, match with
                             people on your route, and keep every trip organized
-                            in one place.
+                            in one place. Simple, direct, no middlemen.
                         </p>
 
                         <div className='header__actions'>
