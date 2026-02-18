@@ -29,7 +29,7 @@ const features = [
 
 function WhyUs() {
     return (
-        <section className='why-us' id='why-us'>
+        <section className='why-us' id='about'>
             <div className='why-us__container'>
                 <header className='why-us__header'>
                     <span className='why-us__eyebrow'>Features</span>

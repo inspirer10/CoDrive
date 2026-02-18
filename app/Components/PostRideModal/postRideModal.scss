@@ -5,7 +5,7 @@
     border: 1px solid var(--border-light);
     background: var(--gray-50);
     box-shadow: var(--shadow-lg);
-    padding: 1.75rem;
+    padding: 1.75rem 1.75rem 2.25rem;
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
@@ -16,7 +16,7 @@
     &__overlay {
         position: fixed;
         inset: 0;
-        z-index: 2000;
+        z-index: 99999;
         background: rgba(15, 23, 42, 0.825);
         backdrop-filter: blur(5px);
         display: flex;
@@ -38,7 +38,7 @@
         }
     }
     &__close {
-        border-radius: 999px;
+        border-radius: 99px;
         border: 1px solid transparent;
         background: transparent;
         color: var(--gray-600);
@@ -68,19 +68,19 @@
         gap: 1rem;
     }
     &__section-title {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         gap: 0.5rem;
         color: var(--text-primary);
         svg {
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.75rem;
         }
         h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-family: var(--font-heading);
             font-weight: 600;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
     }
     &__row {
@@ -124,53 +124,56 @@
     &__label-with-icon {
         display: inline-flex;
         align-items: center;
-        gap: 0.4rem;
+        gap: 0.25rem;
         svg {
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
     }
     &__preset-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.65rem;
+        gap: 0.675rem;
     }
     &__preset {
-        border: 2px solid var(--primary-400);
+        font-family: var(--font-primary);
+        border: 2px solid var(--accent-100);
         border-radius: 12px;
         background: var(--white);
-        color: var(--primary-600);
+        color: var(--accent-600);
         height: 2.5rem;
-        padding: 0 0.95rem;
-        font-size: 0.95rem;
-        font-weight: 700;
+        padding: 0 1rem;
+        font-size: 1rem;
+        font-weight: 600;
         cursor: pointer;
         transition: 0.2s ease;
         &:hover {
-            background: var(--primary-50);
+            background: var(--accent-50);
         }
         &.is-active {
-            background: var(--primary-100);
-            border-color: var(--primary);
-            color: var(--primary-hover);
+            background: var(--accent-100);
+            border-color: var(--accent-600);
+            color: var(--accent-800);
         }
     }
     &__days-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.8rem;
+        gap: 0.675rem;
     }
     &__day {
         flex: 1 1 145px;
-        min-height: 2.85rem;
+        min-height: 3rem;
         border-radius: 12px;
-        border: 1px solid var(--gray-300);
+        border: 2px solid var(--gray-300);
         background: var(--white);
         color: var(--text-secondary);
+        font-family: var(--font-primary);
         font-size: 1rem;
         font-weight: 500;
+        letter-spacing: -0.025em;
         display: inline-flex;
         align-items: center;
-        gap: 0.55rem;
+        gap: 0.5rem;
         padding: 0 0.75rem;
         cursor: pointer;
         transition: 0.2s ease;
@@ -182,13 +185,14 @@
             border-color: var(--primary);
             background: var(--primary-50);
             color: var(--primary-hover);
+            transition: 0.225s ease-in;
         }
     }
     &__day-dot {
-        width: 0.95rem;
-        height: 0.95rem;
-        border-radius: 999px;
-        border: 1px solid var(--primary-400);
+        width: 0.875rem;
+        height: 0.875rem;
+        border-radius: 50px;
+        border: 2px solid var(--primary-400);
         background: transparent;
         transition: 0.2s ease;
     }
@@ -200,19 +204,19 @@
     &__actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.95rem;
+        gap: 1rem;
         margin-top: 0.25rem;
     }
     &__btn {
         flex: 1 1 220px;
-        min-height: 3.15rem;
-        border-radius: 13px;
+        min-height: 3rem;
+        border-radius: 14px;
         border: 2px solid transparent;
         cursor: pointer;
-        font-size: 1.05rem;
-        font-weight: 700;
-        font-family: var(--font-heading);
-        transition: 0.25s ease;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: var(--font-primary);
+        transition: 0.225s ease;
         &--ghost {
             border-color: var(--primary);
             color: var(--primary);

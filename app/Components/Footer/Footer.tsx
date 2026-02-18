@@ -1,5 +1,7 @@
-import React from 'react';
-import { BsCarFront, BsEnvelope, BsTelephone, BsGeoAlt } from 'react-icons/bs';
+'use client';
+
+import React, { FormEvent, useState } from 'react';
+import { BsCarFront, BsEnvelope, BsGeoAlt, BsTelephone } from 'react-icons/bs';
 import {
     FiArrowUpRight,
     FiFacebook,
@@ -8,15 +10,52 @@ import {
     FiTwitter,
     FiYoutube,
 } from 'react-icons/fi';
-
-import './footer.scss';
 import Image from 'next/image';
 
+import './footer.scss';
+
+const officeAddress = '42 Main St, Wroclaw 50-001, Poland';
+const officeRouteUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
+const subscriberStorageKey = 'codrive-newsletter-subscribers';
+
 function Footer() {
+    const [newsletterEmail, setNewsletterEmail] = useState('');
+    const [newsletterMessage, setNewsletterMessage] = useState('');
+
+    const handleNewsletterSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const normalizedEmail = newsletterEmail.trim().toLowerCase();
+        const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail);
+
+        if (!isEmailValid) {
+            setNewsletterMessage('Please enter a valid email address.');
+            return;
+        }
+
+        const existingSubscribersRaw = localStorage.getItem(subscriberStorageKey);
+        const existingSubscribers = existingSubscribersRaw
+            ? (JSON.parse(existingSubscribersRaw) as string[])
+            : [];
+
+        if (existingSubscribers.includes(normalizedEmail)) {
+            setNewsletterMessage('This email is already subscribed.');
+            return;
+        }
+
+        const nextSubscribers = [...existingSubscribers, normalizedEmail];
+        localStorage.setItem(
+            subscriberStorageKey,
+            JSON.stringify(nextSubscribers),
+        );
+        setNewsletterEmail('');
+        setNewsletterMessage('Subscribed. Saved locally for portfolio demo.');
+    };
+
     return (
         <footer className='footer'>
             <div className='footer__container'>
-                <section className='footer__contact'>
+                <section className='footer__contact' id='contact'>
                     <aside className='footer__contact-left'>
                         <span className='footer__eyebrow'>Contact</span>
                         <h2>Get in touch with us</h2>
@@ -60,13 +99,15 @@ function Footer() {
 
                                 <div className='footer__contact-body'>
                                     <strong>Office</strong>
-                                    <p>42 Main St, Wroclaw 50-001, Poland</p>
-                                    <button
+                                    <p>{officeAddress}</p>
+                                    <a
                                         className='footer__map-link'
-                                        type='button'
+                                        href={officeRouteUrl}
+                                        target='_blank'
+                                        rel='noreferrer'
                                     >
                                         Show route <FiArrowUpRight />
-                                    </button>
+                                    </a>
                                 </div>
                             </article>
                         </div>
@@ -75,11 +116,11 @@ function Footer() {
                     <aside className='footer__contact-right' aria-hidden='true'>
                         <div className='footer__map'>
                             <Image
-                                src={'/map.jpg'}
+                                src='/map.jpg'
                                 height={500}
                                 width={600}
                                 quality={90}
-                                alt='alt'
+                                alt='Map preview with CoDrive office location in Wroclaw'
                             />
                         </div>
                     </aside>
@@ -89,15 +130,35 @@ function Footer() {
 
                 <section className='footer__main'>
                     <article className='footer__brand'>
-                        <div className='footer__logo'>
+                        <a className='footer__logo' href='#top'>
                             <BsCarFront className='footer__logo-icon' />
                             CoDrive
-                        </div>
+                        </a>
                         <p>Get updates on new routes and save on fuel.</p>
-                        <div className='footer__newsletter'>
-                            <input type='email' placeholder='Your email' />
-                            <button type='button'>Subscribe</button>
-                        </div>
+                        <form
+                            className='footer__newsletter'
+                            onSubmit={handleNewsletterSubmit}
+                        >
+                            <input
+                                type='email'
+                                placeholder='Your email'
+                                value={newsletterEmail}
+                                onChange={(event) =>
+                                    setNewsletterEmail(event.target.value)
+                                }
+                                required
+                            />
+                            <button type='submit'>Subscribe</button>
+                        </form>
+                        {newsletterMessage && (
+                            <p
+                                className='footer__newsletter-status'
+                                role='status'
+                                aria-live='polite'
+                            >
+                                {newsletterMessage}
+                            </p>
+                        )}
                         <small>
                             By subscribing, you agree to our privacy policy and
                             consent to receive updates.
@@ -107,57 +168,88 @@ function Footer() {
                     <aside className='footer__links' aria-label='Footer links'>
                         <div className='footer__column'>
                             <h4>Platform</h4>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#listings'>
                                 Post a listing
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#listings'>
                                 Find a ride
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#how-it-works'>
                                 How it works
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#faq'>
                                 Safety
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#stories'>
                                 Community
                             </a>
                         </div>
 
                         <div className='footer__column'>
                             <h4>Company</h4>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#about'>
                                 About us
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#stories'>
                                 Blog
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a className='footer__link' href='#contact'>
                                 Contact
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a
+                                className='footer__link'
+                                href='mailto:careers@carpoolshare.pl'
+                            >
                                 Careers
                             </a>
-                            <a className='footer__link' href='#'>
+                            <a
+                                className='footer__link'
+                                href='mailto:press@carpoolshare.pl'
+                            >
                                 Press
                             </a>
                         </div>
 
                         <div className='footer__column'>
                             <h4>Follow us</h4>
-                            <a className='footer__social' href='#'>
+                            <a
+                                className='footer__social'
+                                href='https://www.facebook.com'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
                                 <FiFacebook /> Facebook
                             </a>
-                            <a className='footer__social' href='#'>
+                            <a
+                                className='footer__social'
+                                href='https://www.instagram.com'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
                                 <FiInstagram /> Instagram
                             </a>
-                            <a className='footer__social' href='#'>
+                            <a
+                                className='footer__social'
+                                href='https://twitter.com'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
                                 <FiTwitter /> X
                             </a>
-                            <a className='footer__social' href='#'>
+                            <a
+                                className='footer__social'
+                                href='https://www.linkedin.com'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
                                 <FiLinkedin /> LinkedIn
                             </a>
-                            <a className='footer__social' href='#'>
+                            <a
+                                className='footer__social'
+                                href='https://www.youtube.com'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
                                 <FiYoutube /> YouTube
                             </a>
                         </div>
@@ -165,15 +257,15 @@ function Footer() {
                 </section>
 
                 <div className='footer__bottom'>
-                    <span>© 2026 CoDrive. All rights reserved.</span>
+                    <span>&copy; 2026 CoDrive. All rights reserved.</span>
                     <nav className='footer__legal' aria-label='Legal'>
-                        <a className='footer__link' href='#'>
+                        <a className='footer__link' href='/privacy-policy'>
                             Privacy policy
                         </a>
-                        <a className='footer__link' href='#'>
+                        <a className='footer__link' href='/terms-of-service'>
                             Terms of service
                         </a>
-                        <a className='footer__link' href='#'>
+                        <a className='footer__link' href='/cookie-settings'>
                             Cookie settings
                         </a>
                     </nav>

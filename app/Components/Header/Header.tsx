@@ -1,6 +1,8 @@
 import React from 'react';
-import './header.scss';
 import Image from 'next/image';
+import { BsCarFront } from 'react-icons/bs';
+
+import './header.scss';
 
 function Header() {
     return (
@@ -9,13 +11,18 @@ function Header() {
                 <div className='header__card'>
                     <div className='header__content'>
                         <span className='header__eyebrow'>
-                            CoDrive • Commute rides and savings
+                            CoDrive • Commute daily rides and savings
                         </span>
-                        <h1>Share the ride, split the cost</h1>
+                        <h1>
+                            Meet <span className='company-name'>CoDrive</span>:
+                            <br />
+                            Plan, share the ride and{' '}
+                            <span>split the costs</span>
+                        </h1>
                         <p className='header__lead'>
-                            Search and post shared commute listings. Set the
-                            route, times, weekdays, number of seats, and the
-                            expected fuel share. Simple, direct, no middlemen.
+                            Find or post commute rides in seconds, match with
+                            people on your route, and keep every trip organized
+                            in one place.
                         </p>
 
                         <div className='header__actions'>
@@ -26,44 +33,32 @@ function Header() {
                                 Post a listing
                             </button>
                         </div>
-
-                        <div className='header__details'>
-                            <div className='detail'>
-                                <span className='detail__label'>
-                                    Sample listing
-                                </span>
-                                <span className='detail__value'>
-                                    Berlin → Hamburg • 08:00 • Mon–Fri
-                                </span>
-                            </div>
-                            <div className='detail'>
-                                <span className='detail__label'>
-                                    What you provide
-                                </span>
-                                <span className='detail__value'>
-                                    return trip (optional), car, seats, cost,
-                                    phone, email, name, and photo
-                                </span>
-                            </div>
-                        </div>
                     </div>
 
-                    <div className='header__media' aria-hidden='true'>
-                        <div className='media__frame'>
-                            {/*   <div className='media__photo' /> */}
-                            <Image
-                                className='media__image'
-                                src='/header.jpg'
-                                alt='Image'
-                                width={600}
-                                height={500}
-                                quality={90}
-                                priority
-                            />
+                    <div className='header__media'>
+                        <Image
+                            className='media__image'
+                            src='/test3.jpg'
+                            alt='People sharing a daily commute ride'
+                            width={750}
+                            height={750}
+                            quality={90}
+                            priority
+                        />
 
-                            <div className='media__badge'>
-                                Trusted routes in your area
-                            </div>
+                        <div className='media__badge'>
+                            <span className='media__badge-icon'>
+                                <BsCarFront />
+                            </span>
+                            <span className='media__badge-copy'>
+                                <span className='media__badge-brand'>
+                                    CoDrive
+                                </span>
+                                <span className='media__badge-message'>
+                                    New ride request on your route
+                                </span>
+                            </span>
+                            <span className='media__badge-time'>just now</span>
                         </div>
                     </div>
                 </div>

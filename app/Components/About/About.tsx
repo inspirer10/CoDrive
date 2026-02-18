@@ -1,10 +1,10 @@
 import React from 'react';
 import {
+    FiDollarSign,
     FiMapPin,
     FiNavigation,
     FiSearch,
     FiUsers,
-    FiDollarSign,
 } from 'react-icons/fi';
 import { LuLeaf } from 'react-icons/lu';
 
