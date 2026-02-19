@@ -9,29 +9,32 @@ const steps = [
         label: 'Sign up',
         title: 'Create your account',
         description:
-            'Register with your basic information to get started on CoDrive.',
+            'Register in seconds, set your route preferences, and get ready to match with commuters nearby.',
         link: 'Explore',
         image: '/how-it-works-1.jpg',
     },
     {
-        label: 'Search',
-        title: 'Browse available rides or post your own announcement',
-        description: 'Explore',
-        link: 'Connect',
+        label: 'Search rides',
+        title: 'Browse rides or post your route',
+        description:
+            'Check available rides on your schedule or publish your own daily commute in just a few clicks.',
+        link: 'Browse',
         image: '/how-it-works-2.jpg',
     },
     {
-        label: 'Contact drivers or passengers directly',
-        title: 'Use phone, email, or message to arrange your carpool',
-        description: 'Connect',
+        label: 'Connect',
+        title: 'Contact drivers or passengers directly',
+        description:
+            'Use phone, email, or messages to confirm timing, meeting point, and trip details before departure.',
         link: 'Commute',
         image: '/how-it-works-3.jpg',
     },
     {
-        label: 'Start your shared journey',
-        title: 'Meet your carpool partner and enjoy savings on every trip',
-        description: 'Start now',
-        link: 'Button',
+        label: 'Commute',
+        title: 'Start your shared journey',
+        description:
+            'Meet your carpool partner, ride together, and enjoy lower fuel and parking costs every week.',
+        link: 'Start now',
         image: '/how-it-works-4.jpg',
     },
 ];
@@ -51,28 +54,38 @@ function HowItWorks() {
                 </header>
 
                 <div className='how-it-works__cards'>
-                    {steps.map(({ label, title, description, image, link }) => (
-                        <article key={title} className='how-it-works__card'>
-                            <div className='how-it-works__image'>
-                                <Image
-                                    src={image}
-                                    alt={title}
-                                    width={400}
-                                    height={300}
-                                />
-                            </div>
+                    {steps.map(
+                        ({ label, title, description, image, link }) => (
+                            <article key={title} className='how-it-works__card'>
+                                <div className='how-it-works__content'>
+                                    <span className='how-it-works__label'>
+                                        {label}
+                                    </span>
+                                    <h3 className='how-it-works__title'>
+                                        {title}
+                                    </h3>
+                                    <p className='how-it-works__text'>
+                                        {description}
+                                    </p>
+                                    <button
+                                        className='how-it-works__link'
+                                        type='button'
+                                    >
+                                        {link} <FiArrowUpRight />
+                                    </button>
+                                </div>
 
-                            <span className='how-it-works__label'>{label}</span>
-                            <h3 className='how-it-works__title'>{title}</h3>
-                            <p className='how-it-works__text'>{description}</p>
-                            <button
-                                className='how-it-works__link'
-                                type='button'
-                            >
-                                {link} <FiArrowUpRight />
-                            </button>
-                        </article>
-                    ))}
+                                <div className='how-it-works__image'>
+                                    <Image
+                                        src={image}
+                                        alt={title}
+                                        width={500}
+                                        height={420}
+                                    />
+                                </div>
+                            </article>
+                        ),
+                    )}
                 </div>
             </div>
         </section>
