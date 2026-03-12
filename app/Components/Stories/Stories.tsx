@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { Reveal } from '../Reveal/Reveal';
 
 import './stories.scss';
 
@@ -33,42 +34,46 @@ function Stories() {
     return (
         <section className='stories' id='stories'>
             <div className='stories__container'>
-                <header className='stories__header'>
-                    <span className='stories__eyebrow'>Stories</span>
-                    <h2>Read from the road</h2>
-                    <p className='stories__subtitle'>
-                        Tips, savings, and real commuter experiences shared
-                        weekly
-                    </p>
-                </header>
+                <Reveal width='100%'>
+                    <header className='stories__header'>
+                        <span className='stories__eyebrow'>Stories</span>
+                        <h2>Read from the road</h2>
+                        <p className='stories__subtitle'>
+                            Tips, savings, and real commuter experiences shared
+                            weekly
+                        </p>
+                    </header>
+                </Reveal>
 
                 <div className='stories__cards'>
                     {stories.map(
-                        ({ tag, readTime, title, description, image }) => (
-                            <article key={title} className='stories__card'>
-                                <div className='stories__image'>
-                                    <Image
-                                        src={image}
-                                        alt={title}
-                                        width={600}
-                                        height={420}
-                                    />
-                                </div>
+                        ({ tag, readTime, title, description, image }, index) => (
+                            <Reveal key={title} delay={0.2 + index * 0.1} >
+                                <article className='stories__card'>
+                                    <div className='stories__image'>
+                                        <Image
+                                            src={image}
+                                            alt={title}
+                                            width={600}
+                                            height={420}
+                                        />
+                                    </div>
 
-                                <div className='stories__meta'>
-                                    <span className='stories__tag'>{tag}</span>
-                                    <span className='stories__read'>
-                                        {readTime}
-                                    </span>
-                                </div>
+                                    <div className='stories__meta'>
+                                        <span className='stories__tag'>{tag}</span>
+                                        <span className='stories__read'>
+                                            {readTime}
+                                        </span>
+                                    </div>
 
-                                <h3 className='stories__title'>{title}</h3>
-                                <p className='stories__text'>{description}</p>
+                                    <h3 className='stories__title'>{title}</h3>
+                                    <p className='stories__text'>{description}</p>
 
-                                <button className='stories__link' type='button'>
-                                    Read more <FiArrowUpRight />
-                                </button>
-                            </article>
+                                    <button className='stories__link' type='button'>
+                                        Read more <FiArrowUpRight />
+                                    </button>
+                                </article>
+                            </Reveal>
                         ),
                     )}
                 </div>

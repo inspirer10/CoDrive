@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiArrowUpRight, FiBox } from 'react-icons/fi';
+import { Reveal } from '../Reveal/Reveal';
 
 import './whyUs.scss';
 
@@ -31,36 +32,39 @@ function WhyUs() {
     return (
         <section className='why-us' id='about'>
             <div className='why-us__container'>
-                <header className='why-us__header'>
-                    <span className='why-us__eyebrow'>Features</span>
-                    <h2>Everything you need</h2>
-                    <p className='why-us__subtitle'>
-                        Simple tools to manage shared commutes.
-                    </p>
-                </header>
+                <Reveal width='100%'>
+                    <header className='why-us__header'>
+                        <span className='why-us__eyebrow'>Features</span>
+                        <h2>Everything you need</h2>
+                        <p className='why-us__subtitle'>
+                            Simple tools to manage shared commutes.
+                        </p>
+                    </header>
+                </Reveal>
 
                 <div className='why-us__cards'>
-                    {features.map(({ title, description, link, image }) => (
-                        <article
-                            key={title}
-                            className='why-us__card'
-                            style={
-                                {
-                                    '--why-us-bg': `url(${image})`,
-                                } as React.CSSProperties
-                            }
-                        >
-                            <div className='why-us__card-inner'>
-                                <span className='why-us__icon'>
-                                    <FiBox />
-                                </span>
-                                <h3 className='why-us__title'>{title}</h3>
-                                <p className='why-us__text'>{description}</p>
-                                <button className='why-us__link' type='button'>
-                                    {link} <FiArrowUpRight />
-                                </button>
-                            </div>
-                        </article>
+                    {features.map(({ title, description, link, image }, index) => (
+                        <Reveal key={title} delay={0.2 + index * 0.1} width='100%' className='why-us__card-reveal'>
+                            <article
+                                className='why-us__card'
+                                style={
+                                    {
+                                        '--why-us-bg': `url(${image})`,
+                                    } as React.CSSProperties
+                                }
+                            >
+                                <div className='why-us__card-inner'>
+                                    <span className='why-us__icon'>
+                                        <FiBox />
+                                    </span>
+                                    <h3 className='why-us__title'>{title}</h3>
+                                    <p className='why-us__text'>{description}</p>
+                                    <button className='why-us__link' type='button'>
+                                        {link} <FiArrowUpRight />
+                                    </button>
+                                </div>
+                            </article>
+                        </Reveal>
                     ))}
                 </div>
             </div>

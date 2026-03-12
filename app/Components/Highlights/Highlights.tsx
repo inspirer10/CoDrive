@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { FiArrowUpRight, FiRepeat, FiUsers, FiWind } from 'react-icons/fi';
+import { Reveal } from '../Reveal/Reveal';
 
 import './highlights.scss';
 
@@ -43,28 +44,31 @@ function Highlights() {
                     </aside>
 
                     <article className='highlights__content'>
-                        <div className='highlights__list'>
-                            {highlightItems.map(
-                                ({ title, description, icon: Icon }) => (
-                                    <div
-                                        key={title}
-                                        className='highlights__item'
-                                    >
-                                        <span className='highlights__icon'>
-                                            <Icon />
-                                        </span>
-                                        <div className='highlights__copy'>
-                                            <h3 className='highlights__title'>
-                                                {title}
-                                            </h3>
-                                            <p className='highlights__text'>
-                                                {description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ),
-                            )}
-                        </div>
+                        <Reveal>
+                            <div className='highlights__list'>
+                                {highlightItems.map(
+                                    ({ title, description, icon: Icon }, index) => (
+                                        <Reveal key={title} delay={0.2 + index * 0.1} width='100%'>
+                                            <div
+                                                className='highlights__item'
+                                            >
+                                                <span className='highlights__icon'>
+                                                    <Icon />
+                                                </span>
+                                                <div className='highlights__copy'>
+                                                    <h3 className='highlights__title'>
+                                                        {title}
+                                                    </h3>
+                                                    <p className='highlights__text'>
+                                                        {description}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </Reveal>
+                                    ),
+                                )}
+                            </div>
+                        </Reveal>
 
                         <div className='highlights__actions'>
                             <button

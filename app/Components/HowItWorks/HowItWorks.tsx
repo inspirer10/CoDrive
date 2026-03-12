@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { Reveal } from '../Reveal/Reveal';
 
 import './howItWorks.scss';
 import Image from 'next/image';
@@ -43,47 +44,57 @@ function HowItWorks() {
     return (
         <section className='how-it-works' id='how-it-works'>
             <div className='how-it-works__container'>
-                <header className='how-it-works__header'>
-                    <span className='how-it-works__eyebrow'>
-                        Getting started
-                    </span>
-                    <h2>How It Works</h2>
-                    <p className='how-it-works__subtitle'>
-                        Four simple steps to find or share your commute
-                    </p>
-                </header>
+                <Reveal width='100%'>
+                    <header className='how-it-works__header'>
+                        <span className='how-it-works__eyebrow'>
+                            Getting started
+                        </span>
+                        <h2>How It Works</h2>
+                        <p className='how-it-works__subtitle'>
+                            Four simple steps to find or share your commute
+                        </p>
+                    </header>
+                </Reveal>
 
                 <div className='how-it-works__cards'>
                     {steps.map(
-                        ({ label, title, description, image, link }) => (
-                            <article key={title} className='how-it-works__card'>
-                                <div className='how-it-works__content'>
-                                    <span className='how-it-works__label'>
-                                        {label}
-                                    </span>
-                                    <h3 className='how-it-works__title'>
-                                        {title}
-                                    </h3>
-                                    <p className='how-it-works__text'>
-                                        {description}
-                                    </p>
-                                    <button
-                                        className='how-it-works__link'
-                                        type='button'
-                                    >
-                                        {link} <FiArrowUpRight />
-                                    </button>
-                                </div>
+                        ({ label, title, description, image, link }, index) => (
+                            <Reveal key={title} delay={0.2 + index * 0.1}>
+                                <article
+                                    className={
+                                        index === 0
+                                            ? 'how-it-works__card is-active'
+                                            : 'how-it-works__card'
+                                    }
+                                >
+                                    <div className='how-it-works__content'>
+                                        <span className='how-it-works__label'>
+                                            {label}
+                                        </span>
+                                        <h3 className='how-it-works__title'>
+                                            {title}
+                                        </h3>
+                                        <p className='how-it-works__text'>
+                                            {description}
+                                        </p>
+                                        <button
+                                            className='how-it-works__link'
+                                            type='button'
+                                        >
+                                            {link} <FiArrowUpRight />
+                                        </button>
+                                    </div>
 
-                                <div className='how-it-works__image'>
-                                    <Image
-                                        src={image}
-                                        alt={title}
-                                        width={500}
-                                        height={420}
-                                    />
-                                </div>
-                            </article>
+                                    <div className='how-it-works__image'>
+                                        <Image
+                                            src={image}
+                                            alt={title}
+                                            width={500}
+                                            height={420}
+                                        />
+                                    </div>
+                                </article>
+                            </Reveal>
                         ),
                     )}
                 </div>

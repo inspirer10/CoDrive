@@ -19,6 +19,74 @@
         font-size: 20px;
         color: var(--text-muted);
     }
+    &__filters {
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border: 1px solid var(--border-light);
+        border-radius: 16px;
+        background: var(--white);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        align-items: end;
+    }
+    &__filter {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+        flex: 1 1 180px;
+        span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        input,
+        select {
+            height: 42px;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--border-default);
+            background: var(--gray-50);
+            color: var(--text-primary);
+            padding: 0 0.75rem;
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            &:focus {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+                outline: none;
+            }
+        }
+        input[type='number'] {
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            margin: 0;
+            -webkit-appearance: none;
+        }
+    }
+    &__clear-btn {
+        height: 42px;
+        min-width: 150px;
+        border-radius: 10px;
+        border: 1px solid var(--border-default);
+        background: transparent;
+        color: var(--text-secondary);
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-50);
+        }
+    }
     &__grid {
         display: flex;
         flex-wrap: wrap;
@@ -26,6 +94,23 @@
         .ride-card {
             flex: 1 1 calc(30% - 3rem);
             min-width: 300px;
+        }
+    }
+    &__empty-state {
+        margin-top: 1rem;
+        padding: 2rem 1.5rem;
+        border: 1px dashed var(--border-default);
+        border-radius: 16px;
+        background: var(--surface-light);
+        text-align: center;
+        h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: var(--text-muted);
+            font-size: 1rem;
         }
     }
     &__pagination {
@@ -52,7 +137,6 @@
     }
 }
 
-// Ride Card Component
 .ride-card {
     background: var(--white);
     border-radius: 16px;
@@ -68,7 +152,6 @@
         box-shadow: var(--shadow-md);
         border-color: var(--border-accent);
     }
-    // Route section (from/to + price)
     &__route {
         display: flex;
         justify-content: space-between;
@@ -83,14 +166,17 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-size: 0.95rem;
+        font-size: 1rem;
         font-weight: 500;
         color: var(--text-primary);
     }
     &__pin {
-        color: var(--accent);
+        color: var(--primary-600);
         font-size: 1rem;
         flex-shrink: 0;
+    }
+    .second_pin {
+        color: var(--accent-600);
     }
     &__price {
         text-align: right;
@@ -106,7 +192,6 @@
         font-size: 0.875rem;
         color: var(--text-muted);
     }
-    // Driver section
     &__driver {
         display: flex;
         align-items: center;
@@ -141,7 +226,7 @@
             font-size: 1rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 0.125rem
+            margin-bottom: 0.125rem;
         }
         p {
             display: flex;
@@ -155,7 +240,6 @@
             }
         }
     }
-    // Details section (time + seats)
     &__details {
         display: flex;
         flex-wrap: wrap;
@@ -177,7 +261,6 @@
             font-size: 1rem;
         }
     }
-    // Days section
     &__days {
         display: flex;
         flex-wrap: wrap;
@@ -202,7 +285,6 @@
         border: 1px solid var(--border-light);
         transition: 0.2s ease;
     }
-    // Actions section
     &__actions {
         display: flex;
         gap: 0.75rem;
@@ -224,44 +306,28 @@
         font-family: var(--font-heading);
         cursor: pointer;
         transition: 0.25s ease;
-        border: 2px solid var(--accent);
+        border: 2px solid var(--primary-300);
         svg {
             font-size: 1rem;
             transition: 0.2s ease;
         }
-        &--call {
-            background: transparent;
-            color: var(--accent);
-            &:hover {
-                background: var(--accent);
-                color: var(--white);
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
-                svg {
-                    color: var(--white);
-                }
-            }
-            &:active {
-                transform: translateY(0) scale(0.97);
-                box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
-                transition: 0.1s ease;
-            }
-        }
+        &--call,
         &--email {
             background: transparent;
-            color: var(--accent);
+            color: var(--primary);
             &:hover {
-                background: var(--accent);
+                background: var(--primary);
                 color: var(--white);
+                border-color: var(--primary);
                 transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+                box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
                 svg {
                     color: var(--white);
                 }
             }
             &:active {
                 transform: translateY(0) scale(0.97);
-                box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+                box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
                 transition: 0.1s ease;
             }
         }
@@ -315,6 +381,14 @@
         }
         &__subtitle {
             font-size: 0.9rem;
+        }
+        &__filters {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 0.9rem;
+        }
+        &__clear-btn {
+            width: 100%;
         }
     }
     .ride-card {

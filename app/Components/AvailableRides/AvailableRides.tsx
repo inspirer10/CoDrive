@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useMemo, useState } from 'react';
 import {
     FiMapPin,
     FiClock,
@@ -8,10 +10,10 @@ import {
     FiCalendar,
 } from 'react-icons/fi';
 import { IoCarSportOutline } from 'react-icons/io5';
+import { Reveal } from '../Reveal/Reveal';
 
 import './availableRides.scss';
 
-// Ride data interface
 interface Ride {
     id: number;
     from: string;
@@ -28,7 +30,17 @@ interface Ride {
     days: string[];
 }
 
-// Sample rides data
+interface RideFilters {
+    from: string;
+    to: string;
+    day: string;
+    minSeats: number;
+    maxPrice: number;
+}
+
+const allDaysLabel = 'All days';
+const allSeatsValue = 0;
+
 const ridesData: Ride[] = [
     {
         id: 1,
@@ -123,7 +135,7 @@ const ridesData: Ride[] = [
     {
         id: 7,
         from: 'Copenhagen',
-        to: 'Malmö',
+        to: 'Malmo',
         price: 15,
         driver: {
             name: 'Erik',
@@ -166,21 +178,181 @@ const ridesData: Ride[] = [
     },
 ];
 
+const dayOptions = [
+    allDaysLabel,
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+    'Sun',
+];
+
+const seatOptions = [allSeatsValue, 1, 2, 3, 4];
+
+const initialFilters: RideFilters = {
+    from: '',
+    to: '',
+    day: allDaysLabel,
+    minSeats: allSeatsValue,
+    maxPrice: 0,
+};
+
 function AvailableRides() {
+    const [filters, setFilters] = useState<RideFilters>(initialFilters);
+
+    const filteredRides = useMemo(() => {
+        const fromTerm = filters.from.trim().toLowerCase();
+        const toTerm = filters.to.trim().toLowerCase();
+
+        return ridesData.filter((ride) => {
+            const matchesFrom =
+                fromTerm.length === 0 ||
+                ride.from.toLowerCase().includes(fromTerm);
+            const matchesTo =
+                toTerm.length === 0 || ride.to.toLowerCase().includes(toTerm);
+            const matchesDay =
+                filters.day === allDaysLabel || ride.days.includes(filters.day);
+            const matchesSeats = ride.availableSeats >= filters.minSeats;
+            const matchesPrice =
+                filters.maxPrice <= 0 || ride.price <= filters.maxPrice;
+
+            return (
+                matchesFrom &&
+                matchesTo &&
+                matchesDay &&
+                matchesSeats &&
+                matchesPrice
+            );
+        });
+    }, [filters]);
+
+    const handleTextFilterChange =
+        (key: 'from' | 'to' | 'day') =>
+        (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+            const { value } = event.target;
+            setFilters((current) => ({
+                ...current,
+                [key]: value,
+            }));
+        };
+
+    const handleMinSeatsChange = (
+        event: React.ChangeEvent<HTMLSelectElement>,
+    ) => {
+        setFilters((current) => ({
+            ...current,
+            minSeats: Number(event.target.value),
+        }));
+    };
+
+    const handleMaxPriceChange = (
+        event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
+        const nextValue =
+            event.target.value === '' ? 0 : Number(event.target.value);
+
+        setFilters((current) => ({
+            ...current,
+            maxPrice: Number.isNaN(nextValue) ? 0 : nextValue,
+        }));
+    };
+
+    const clearFilters = () => {
+        setFilters(initialFilters);
+    };
+
     return (
         <section className='available-rides' id='listings'>
             <div className='available-rides__container'>
-                <div className='available-rides__header'>
-                    <h2>Available Rides</h2>
-                    <p className='available-rides__subtitle'>
-                        Find the perfect travel companion for your route
-                    </p>
+                <Reveal width='100%'>
+                    <div className='available-rides__header'>
+                        <h2>Available Rides</h2>
+                        <p className='available-rides__subtitle'>
+                            Find the perfect travel companion for your route
+                        </p>
+                    </div>
+                </Reveal>
+
+                <div className='available-rides__filters'>
+                    <label className='available-rides__filter'>
+                        <span>From</span>
+                        <input
+                            type='text'
+                            placeholder='Any city'
+                            value={filters.from}
+                            onChange={handleTextFilterChange('from')}
+                        />
+                    </label>
+
+                    <label className='available-rides__filter'>
+                        <span>To</span>
+                        <input
+                            type='text'
+                            placeholder='Any city'
+                            value={filters.to}
+                            onChange={handleTextFilterChange('to')}
+                        />
+                    </label>
+
+                    <label className='available-rides__filter'>
+                        <span>Day</span>
+                        <select
+                            value={filters.day}
+                            onChange={handleTextFilterChange('day')}
+                        >
+                            {dayOptions.map((day) => (
+                                <option key={day} value={day}>
+                                    {day}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+
+                    <label className='available-rides__filter'>
+                        <span>Min seats</span>
+                        <select
+                            value={filters.minSeats}
+                            onChange={handleMinSeatsChange}
+                        >
+                            {seatOptions.map((seats) => (
+                                <option key={seats} value={seats}>
+                                    {seats === allSeatsValue
+                                        ? 'Any seats'
+                                        : seats}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+
+                    <label className='available-rides__filter'>
+                        <span>Max price</span>
+                        <input
+                            type='number'
+                            min={1}
+                            step={1}
+                            inputMode='numeric'
+                            placeholder='No limit'
+                            value={
+                                filters.maxPrice === 0 ? '' : filters.maxPrice
+                            }
+                            onChange={handleMaxPriceChange}
+                        />
+                    </label>
+
+                    <button
+                        className='available-rides__clear-btn'
+                        type='button'
+                        onClick={clearFilters}
+                    >
+                        Clear filters
+                    </button>
                 </div>
 
                 <div className='available-rides__grid'>
-                    {ridesData.map((ride) => (
+                    {filteredRides.map((ride) => (
                         <article key={ride.id} className='ride-card'>
-                            {/* Route section */}
                             <div className='ride-card__route'>
                                 <div className='ride-card__locations'>
                                     <div className='ride-card__location'>
@@ -188,7 +360,7 @@ function AvailableRides() {
                                         <span>{ride.from}</span>
                                     </div>
                                     <div className='ride-card__location'>
-                                        <FiMapPin className='ride-card__pin' />
+                                        <FiMapPin className='ride-card__pin second_pin' />
                                         <span>{ride.to}</span>
                                     </div>
                                 </div>
@@ -202,7 +374,6 @@ function AvailableRides() {
                                 </div>
                             </div>
 
-                            {/* Driver section */}
                             <div className='ride-card__driver'>
                                 <div className='ride-card__avatar'>
                                     {ride.driver.avatar ? (
@@ -225,14 +396,13 @@ function AvailableRides() {
                                 </div>
                             </div>
 
-                            {/* Details section */}
                             <div className='ride-card__details'>
                                 <div className='ride-card__time'>
                                     <FiClock />
                                     <span>
                                         {ride.departureTime}
                                         {ride.arrivalTime &&
-                                            ` → ${ride.arrivalTime}`}
+                                            ` -> ${ride.arrivalTime}`}
                                     </span>
                                 </div>
                                 <div className='ride-card__seats'>
@@ -243,17 +413,18 @@ function AvailableRides() {
                                 </div>
                             </div>
 
-                            {/* Days section */}
                             <div className='ride-card__days'>
                                 <FiCalendar className='ride-card__days-icon' />
-                                {ride.days.map((day, idx) => (
-                                    <span key={idx} className='ride-card__day'>
+                                {ride.days.map((day) => (
+                                    <span
+                                        key={`${ride.id}-${day}`}
+                                        className='ride-card__day'
+                                    >
                                         {day}
                                     </span>
                                 ))}
                             </div>
 
-                            {/* Actions section */}
                             <div className='ride-card__actions'>
                                 <button
                                     className='ride-card__btn ride-card__btn--call'
@@ -274,12 +445,22 @@ function AvailableRides() {
                     ))}
                 </div>
 
-                {/* Pagination dots */}
-                <div className='available-rides__pagination'>
-                    <span className='available-rides__dot available-rides__dot--active'></span>
-                    <span className='available-rides__dot'></span>
-                    <span className='available-rides__dot'></span>
-                </div>
+                {filteredRides.length === 0 && (
+                    <div className='available-rides__empty-state'>
+                        <h3>No rides match your filters</h3>
+                        <p>
+                            Try broadening your route, day, or price criteria.
+                        </p>
+                    </div>
+                )}
+
+                {filteredRides.length > 0 && (
+                    <div className='available-rides__pagination'>
+                        <span className='available-rides__dot available-rides__dot--active'></span>
+                        <span className='available-rides__dot'></span>
+                        <span className='available-rides__dot'></span>
+                    </div>
+                )}
             </div>
         </section>
     );
