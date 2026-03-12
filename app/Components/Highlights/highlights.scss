@@ -51,6 +51,13 @@
         align-items: flex-start;
         gap: 1.5rem;
         max-width: 500px;
+        transition: .275s ease;
+        transition-delay: 0.02s;
+        &:hover {
+            transition: .225s ease;
+            transition-delay: 0.02s;
+            transform: translateX(6px);
+        }
     }
     &__icon {
         display: inline-flex;
@@ -103,7 +110,7 @@
             box-shadow: 0 12px 32px rgba(79, 70, 229, 0.35);
         }
         &:active {
-            transform: translateY(0) scale(0.97);
+            transform: translateY(0) scale(0.99);
             transition: 0.1s ease;
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
         }
