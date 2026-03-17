@@ -87,6 +87,103 @@
     }
 }
 
+@media (max-width: 1536px) {
+    .faq {
+        &__container {
+            width: 85%;
+        }
+        &__left {
+            top: calc(9vh + 1rem);
+            h2 {
+                font-size: 3rem;
+            }
+            .subtitle {
+                font-size: 1.125rem;
+            }
+        }
+        &__item {
+            padding: 1.375rem 0;
+        }
+        &__question {
+            font-size: 1.125rem;
+        }
+        &__answer {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .faq {
+        &__container {
+            width: 86%;
+        }
+        &__left {
+            h2 {
+                font-size: 2.875rem;
+            }
+            .subtitle {
+                font-size: 1.125rem;
+            }
+            .btn {
+                padding: 0.625rem 2.25rem;
+                font-size: 1rem;
+            }
+        }
+        &__question {
+            font-size: 1.125rem;
+        }
+        &__answer {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: 1366px) {
+    .faq {
+        &__container {
+            width: 87.5%;
+        }
+        &__left {
+            h2 {
+                font-size: 2.75rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+        &__question {
+            font-size: 1rem;
+        }
+        &__answer {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .faq {
+        &__container {
+            width: 90%;
+        }
+        &__left {
+            top: calc(8vh + 1rem);
+            h2 {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+        &__question {
+            font-size: 1rem;
+        }
+        &__answer {
+            font-size: 0.875rem;
+        }
+    }
+}
+
 @media (max-width: 1024px) {
     .faq {
         &__container {
@@ -124,7 +221,7 @@
             font-size: 1rem;
         }
         &__answer {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
         }
     }
 }

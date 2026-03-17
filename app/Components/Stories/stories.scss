@@ -99,7 +99,7 @@
         user-select: none;
     }
     &__read {
-        font-size: 0.85rem;
+        font-size: 0.875rem;
         color: var(--text-muted);
         font-weight: 600;
     }
@@ -162,8 +162,8 @@
         color: var(--text-secondary);
         font-family: var(--font-heading);
         font-weight: 600;
-        font-size: 0.95rem;
-        padding: 0.65rem 1.75rem;
+        font-size: 1rem;
+        padding: 0.625rem 1.75rem;
         border-radius: 999px;
         cursor: pointer;
         transition: 0.2s ease;
@@ -182,6 +182,141 @@
     }
 }
 
+@media (max-width: 1536px) {
+    .stories {
+        &__container {
+            width: 85%;
+        }
+        h2 {
+            font-size: 3.25rem;
+        }
+        &__subtitle {
+            font-size: 1.125rem;
+        }
+        &__cards {
+            gap: 0.875rem;
+        }
+        &__card {
+            max-width: 380px;
+        }
+        &__meta {
+            padding: 0.875rem 1.25rem 0.25rem;
+        }
+        &__tag {
+            font-size: 0.75rem;
+        }
+        &__read {
+            font-size: 0.75rem;
+        }
+        &__title {
+            font-size: 1.125rem;
+        }
+        &__text {
+            font-size: 1rem;
+        }
+        &__link {
+            margin-top: 1.5rem;
+        }
+        &__view {
+            font-size: 0.875rem;
+            padding: 0.625rem 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .stories {
+        &__container {
+            width: 86%;
+        }
+        h2 {
+            font-size: 3rem;
+        }
+        &__subtitle {
+            font-size: 1.125rem;
+        }
+        &__card {
+            max-width: 360px;
+        }
+        &__meta {
+            padding: 0.75rem 1.25rem 0.25rem;
+        }
+        &__title {
+            font-size: 1.125rem;
+        }
+        &__text {
+            font-size: 1rem;
+        }
+        &__link {
+            font-size: 1rem;
+        }
+        &__actions {
+            margin-top: 2.25rem;
+        }
+    }
+}
+
+@media (max-width: 1366px) {
+    .stories {
+        &__container {
+            width: 87.5%;
+        }
+        h2 {
+            font-size: 2.875rem;
+        }
+        &__subtitle {
+            font-size: 1rem;
+        }
+        &__card {
+            max-width: 340px;
+        }
+        &__meta {
+            padding: 0.75rem 1.125rem 0.25rem;
+        }
+        &__tag {
+            font-size: 0.75rem;
+        }
+        &__title {
+            font-size: 1rem;
+        }
+        &__text {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .stories {
+        &__container {
+            width: 90%;
+        }
+        h2 {
+            font-size: 2.625rem;
+        }
+        &__subtitle {
+            font-size: 1rem;
+        }
+        &__card {
+            max-width: 330px;
+        }
+        &__meta {
+            padding: 0.75rem 1rem 0.25rem;
+        }
+        &__title {
+            font-size: 1rem;
+        }
+        &__text {
+            font-size: 0.875rem;
+        }
+        &__link {
+            margin-top: 1.25rem;
+        }
+        &__view {
+            font-size: 0.875rem;
+        }
+    }
+}
+
 @media (max-width: 1024px) {
     .stories {
         &__card {
@@ -194,7 +329,7 @@
     .stories {
         padding: 9vh 0;
         h2 {
-            font-size: 2.2rem;
+            font-size: 2.25rem;
         }
         &__cards {
             gap: 1.25rem;

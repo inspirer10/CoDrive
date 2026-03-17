@@ -186,7 +186,7 @@
             border: 1px solid var(--border-default);
             background: var(--white);
             outline: none;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-primary);
             transition: 0.2s ease;
             &::placeholder {
@@ -285,6 +285,127 @@
             color: var(--text-muted);
             &:hover {
                 color: var(--primary);
+            }
+        }
+    }
+    @media (max-width: 1536px) {
+        padding: 12vh 0 5vh;
+        &__container {
+            width: 84%;
+        }
+        h2 {
+            font-size: 2.5rem;
+        }
+        &__lead {
+            font-size: 1rem;
+        }
+        &__contact-list {
+            gap: 2rem;
+        }
+        &__contact-item {
+            strong {
+                font-size: 1.25rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+        &__map {
+            max-width: 560px;
+            padding: 1.75rem;
+        }
+        &__main {
+            gap: 1.5rem;
+        }
+        &__links {
+            gap: 12%;
+        }
+    }
+    @media (max-width: 1440px) {
+        padding: 11vh 0 5vh;
+        &__container {
+            width: 86%;
+        }
+        h2 {
+            font-size: 2.375rem;
+        }
+        &__contact-list {
+            gap: 1.75rem;
+        }
+        &__map {
+            max-width: 520px;
+            padding: 1.5rem;
+        }
+        &__newsletter {
+            input {
+                padding: 0.625rem 0.875rem;
+                font-size: 0.875rem;
+            }
+            button {
+                padding: 0.625rem 1.125rem;
+                font-size: 1rem;
+            }
+        }
+        &__column {
+            h4 {
+                font-size: 1rem;
+            }
+        }
+    }
+    @media (max-width: 1366px) {
+        padding: 10.5vh 0 4.5vh;
+        &__container {
+            width: 87.5%;
+        }
+        h2 {
+            font-size: 2.25rem;
+        }
+        &__lead {
+            font-size: 1rem;
+        }
+        &__contact-list {
+            gap: 1.5rem;
+        }
+        &__map {
+            max-width: 480px;
+            padding: 1.375rem;
+        }
+        &__links {
+            gap: 10%;
+        }
+        &__bottom {
+            margin-top: 1.5rem;
+        }
+    }
+    @media (max-width: 1280px) {
+        padding: 10vh 0 4vh;
+        &__container {
+            width: 90%;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        &__map {
+            max-width: 450px;
+            padding: 1.25rem;
+        }
+        &__contact-item {
+            strong {
+                font-size: 1.125rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+        &__logo {
+            font-size: 1.375rem;
+        }
+        &__newsletter {
+            input {
+                font-size: 0.875rem;
+            }
+            button {
+                font-size: 0.875rem;
             }
         }
     }

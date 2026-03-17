@@ -152,6 +152,143 @@
     }
 }
 
+@media (max-width: 1536px) {
+    .our-impact {
+        &__shell {
+            width: 92.5%;
+            padding: 4.5rem 2.25rem;
+        }
+        &__top {
+            gap: 6vw;
+        }
+        &__title {
+            font-size: 3.625rem;
+        }
+        &__cards {
+            margin-left: 10%;
+            gap: 1.25%;
+        }
+        &__card {
+            min-height: 19rem;
+            padding: 1.75rem 1.75rem 1.25rem;
+        }
+        &__metric {
+            font-size: 3.25rem;
+        }
+        &__suffix {
+            font-size: 1.75rem;
+        }
+        &__description {
+            font-size: 1.25rem;
+        }
+        &__button {
+            left: 1.75rem;
+            bottom: 1.125rem;
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .our-impact {
+        &__shell {
+            width: 92.5%;
+            padding: 4rem 2rem;
+        }
+        &__top {
+            gap: 5vw;
+        }
+        &__title {
+            font-size: 3.25rem;
+            max-width: 26ch;
+        }
+        &__cards {
+            margin-left: 8%;
+            gap: 1.25%;
+        }
+        &__card {
+            min-height: 18.5rem;
+            padding: 1.625rem 1.625rem 1.25rem;
+        }
+        &__metric {
+            font-size: 3rem;
+        }
+        &__suffix {
+            font-size: 1.75rem;
+        }
+        &__description {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+@media (max-width: 1366px) {
+    .our-impact {
+        &__shell {
+            width: 93%;
+            padding: 3.5rem 1.75rem;
+        }
+        &__top {
+            gap: 4.5vw;
+        }
+        &__title {
+            font-size: 3rem;
+        }
+        &__cards {
+            margin-left: 5%;
+            gap: 1%;
+        }
+        &__card {
+            min-height: 17.5rem;
+            padding: 1.5rem 1.5rem 1.125rem;
+        }
+        &__metric {
+            font-size: 2.75rem;
+        }
+        &__suffix {
+            font-size: 1.625rem;
+        }
+        &__description {
+            font-size: 1.125rem;
+        }
+        &__button {
+            left: 1.5rem;
+            bottom: 1rem;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .our-impact {
+        &__shell {
+            width: 94%;
+            padding: 3rem 1.5rem;
+        }
+        &__top {
+            gap: 4vw;
+        }
+        &__title {
+            font-size: 2.75rem;
+        }
+        &__cards {
+            margin-left: 0;
+            gap: 1%;
+        }
+        &__card {
+            min-height: 17rem;
+            padding: 1.375rem 1.375rem 1rem;
+        }
+        &__metric {
+            font-size: 2.625rem;
+        }
+        &__suffix {
+            font-size: 1.5rem;
+        }
+        &__description {
+            font-size: 1.125rem;
+        }
+    }
+}
+
 @media (max-width: 1200px) {
     .our-impact {
         &__title {
