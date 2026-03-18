@@ -427,19 +427,86 @@
     }
     @media (max-width: 640px) {
         &__container {
-            width: 90%;
+            width: 92.5%;
+        }
+        &__contact {
+            align-items: center;
+            gap: 1.5rem;
+        }
+        &__contact-left {
+            width: 100%;
+            text-align: center;
         }
         h2 {
-            font-size: 2rem;
+            font-size: 1.75rem;
+        }
+        &__lead {
+            font-size: 0.875rem;
+        }
+        &__contact-list {
+            margin-top: 1.75rem;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        &__contact-item {
+            align-items: center;
+            text-align: center;
+            strong {
+                font-size: 1rem;
+            }
+            p {
+                font-size: 0.875rem;
+            }
+        }
+        &__map {
+            max-width: 380px;
+            margin: 0 auto;
+            transform: none;
+            padding: 0.75rem;
+        }
+        &__main {
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+        &__brand {
+            max-width: 100%;
+            align-items: center;
         }
         &__links {
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 1.25rem;
+        }
+        &__column {
+            align-items: center;
+            h4 {
+                margin-bottom: 0.5rem;
+            }
         }
         &__newsletter {
             flex-direction: column;
+            width: 100%;
+            max-width: 26.25rem;
+            input {
+                width: 100%;
+                text-align: center;
+            }
             button {
                 width: 100%;
             }
+        }
+        &__bottom {
+            margin-top: 1.5rem;
+            justify-content: center;
+            text-align: center;
+            gap: 0.75rem;
+        }
+        &__legal {
+            justify-content: center;
+            gap: 1rem;
         }
     }
 }

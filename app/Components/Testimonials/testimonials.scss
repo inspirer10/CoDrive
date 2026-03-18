@@ -284,10 +284,18 @@
         }
         &__cards {
             gap: 1.25rem;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        &__cards > div {
+            width: 100%;
+            display: flex;
         }
         &__card {
             flex: 1 1 100%;
-            max-width: 480px;
+            max-width: none;
+            min-width: 0;
+            width: 100%;
         }
         &__image {
             aspect-ratio: 16 / 10;
@@ -307,7 +315,38 @@
 @media (max-width: 640px) {
     .testimonials {
         &__container {
-            width: 90%;
+            width: 92.5%;
+        }
+        h2 {
+            font-size: 1.75rem;
+        }
+        &__subtitle {
+            font-size: 0.875rem;
+            max-width: 34ch;
+        }
+        &__content {
+            padding: 1rem 0.875rem;
+            text-align: center;
+        }
+        &__quote {
+            font-size: 0.875rem;
+        }
+        &__footer {
+            margin-top: 1rem;
+            padding-top: 0.875rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+        }
+        &__name {
+            font-size: 1rem;
+        }
+        &__role {
+            font-size: 0.875rem;
+        }
+        &__commute {
+            justify-content: center;
         }
     }
 }

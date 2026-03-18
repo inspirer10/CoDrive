@@ -110,3 +110,25 @@ button,
 img {
     user-select: none;
 }
+
+@media (max-width: 1024px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    body {
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 640px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    body {
+        line-height: 1.625;
+    }
+}
