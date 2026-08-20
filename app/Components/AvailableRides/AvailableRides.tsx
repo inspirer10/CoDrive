@@ -40,6 +40,7 @@ interface RideFilters {
 
 const allDaysLabel = 'All days';
 const allSeatsValue = 0;
+const ridesPerPage = 3;
 
 const ridesData: Ride[] = [
     {
@@ -201,6 +202,7 @@ const initialFilters: RideFilters = {
 
 function AvailableRides() {
     const [filters, setFilters] = useState<RideFilters>(initialFilters);
+    const [currentPage, setCurrentPage] = useState(0);
 
     const filteredRides = useMemo(() => {
         const fromTerm = filters.from.trim().toLowerCase();
@@ -228,10 +230,18 @@ function AvailableRides() {
         });
     }, [filters]);
 
+    const totalPages = Math.ceil(filteredRides.length / ridesPerPage);
+    const activePage = Math.min(currentPage, Math.max(totalPages - 1, 0));
+    const visibleRides = filteredRides.slice(
+        activePage * ridesPerPage,
+        (activePage + 1) * ridesPerPage,
+    );
+
     const handleTextFilterChange =
         (key: 'from' | 'to' | 'day') =>
         (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
             const { value } = event.target;
+            setCurrentPage(0);
             setFilters((current) => ({
                 ...current,
                 [key]: value,
@@ -241,6 +251,7 @@ function AvailableRides() {
     const handleMinSeatsChange = (
         event: React.ChangeEvent<HTMLSelectElement>,
     ) => {
+        setCurrentPage(0);
         setFilters((current) => ({
             ...current,
             minSeats: Number(event.target.value),
@@ -253,6 +264,7 @@ function AvailableRides() {
         const nextValue =
             event.target.value === '' ? 0 : Number(event.target.value);
 
+        setCurrentPage(0);
         setFilters((current) => ({
             ...current,
             maxPrice: Number.isNaN(nextValue) ? 0 : nextValue,
@@ -260,6 +272,7 @@ function AvailableRides() {
     };
 
     const clearFilters = () => {
+        setCurrentPage(0);
         setFilters(initialFilters);
     };
 
@@ -268,9 +281,23 @@ function AvailableRides() {
             <div className='available-rides__container'>
                 <Reveal width='100%'>
                     <div className='available-rides__header'>
-                        <h2>Available Rides</h2>
-                        <p className='available-rides__subtitle'>
-                            Find the perfect travel companion for your route
+                        <div className='available-rides__heading-copy'>
+                            <span className='available-rides__eyebrow'>
+                                Live ride board
+                            </span>
+                            <h2>Available Rides</h2>
+                            <p className='available-rides__subtitle'>
+                                Find the perfect travel companion for your route
+                            </p>
+                        </div>
+                        <p
+                            className='available-rides__result-count'
+                            aria-live='polite'
+                        >
+                            <span>{filteredRides.length}</span>
+                            {filteredRides.length === 1
+                                ? ' route matching'
+                                : ' routes matching'}
                         </p>
                     </div>
                 </Reveal>
@@ -350,8 +377,8 @@ function AvailableRides() {
                     </button>
                 </div>
 
-                <div className='available-rides__grid'>
-                    {filteredRides.map((ride) => (
+                <div className='available-rides__grid' aria-live='polite'>
+                    {visibleRides.map((ride) => (
                         <article key={ride.id} className='ride-card'>
                             <div className='ride-card__route'>
                                 <div className='ride-card__locations'>
@@ -454,12 +481,37 @@ function AvailableRides() {
                     </div>
                 )}
 
-                {filteredRides.length > 0 && (
-                    <div className='available-rides__pagination'>
-                        <span className='available-rides__dot available-rides__dot--active'></span>
-                        <span className='available-rides__dot'></span>
-                        <span className='available-rides__dot'></span>
-                    </div>
+                {totalPages > 1 && (
+                    <nav
+                        className='available-rides__pagination'
+                        aria-label='Available rides pages'
+                    >
+                        {Array.from({ length: totalPages }, (_, pageIndex) => {
+                            const isActive = pageIndex === activePage;
+
+                            return (
+                                <button
+                                    key={pageIndex}
+                                    className={`available-rides__page-button${
+                                        isActive
+                                            ? ' available-rides__page-button--active'
+                                            : ''
+                                    }`}
+                                    type='button'
+                                    aria-label={`Show rides page ${pageIndex + 1} of ${totalPages}`}
+                                    aria-current={
+                                        isActive ? 'page' : undefined
+                                    }
+                                    onClick={() => setCurrentPage(pageIndex)}
+                                >
+                                    <span
+                                        className='available-rides__dot'
+                                        aria-hidden='true'
+                                    />
+                                </button>
+                            );
+                        })}
+                    </nav>
                 )}
             </div>
         </section>

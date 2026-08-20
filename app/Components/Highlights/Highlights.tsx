@@ -36,22 +36,51 @@ function Highlights() {
                             <Image
                                 src='/footer.jpg'
                                 alt='Mapa tras dojazdu'
-                                width={500}
-                                height={700}
+                                width={600}
+                                height={750}
                                 quality={90}
                             />
+                            <div className='highlights__media-note'>
+                                <span>Built for the everyday route</span>
+                                <strong>Same commute. Better return.</strong>
+                            </div>
                         </div>
                     </aside>
 
                     <article className='highlights__content'>
-                        <Reveal>
+                        <Reveal width='100%'>
+                            <div className='highlights__intro'>
+                                <span className='highlights__eyebrow'>
+                                    Why carpool with CoDrive
+                                </span>
+                                <h2>Make the same commute work harder.</h2>
+                                <p className='highlights__lead'>
+                                    Turn an everyday route into lower costs,
+                                    cleaner streets, and a more connected
+                                    routine.
+                                </p>
+                            </div>
+                        </Reveal>
+
+                        <Reveal width='100%'>
                             <div className='highlights__list'>
                                 {highlightItems.map(
-                                    ({ title, description, icon: Icon }, index) => (
-                                        <Reveal key={title} delay={0.2 + index * 0.1} width='100%'>
-                                            <div
-                                                className='highlights__item'
-                                            >
+                                    (
+                                        { title, description, icon: Icon },
+                                        index,
+                                    ) => (
+                                        <Reveal
+                                            key={title}
+                                            delay={0.2 + index * 0.1}
+                                            width='100%'
+                                        >
+                                            <div className='highlights__item'>
+                                                <span className='highlights__index'>
+                                                    {String(index + 1).padStart(
+                                                        2,
+                                                        '0',
+                                                    )}
+                                                </span>
                                                 <span className='highlights__icon'>
                                                     <Icon />
                                                 </span>

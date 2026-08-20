@@ -68,6 +68,18 @@
     --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
     --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
     --shadow-accent: 0 12px 24px rgba(16, 185, 129, 0.25);
+
+    // RESPONSIVE RHYTHM
+    --desktop-content-width: 90%;
+    --desktop-section-space: clamp(4.25rem, 6vw, 6.5rem);
+    --desktop-section-space-compact: clamp(3rem, 4.25vw, 4.5rem);
+    --desktop-footer-space: clamp(5.25rem, 7vw, 8rem);
+    --mobile-gutter: clamp(1rem, 3.75vw, 1.5rem);
+    --mobile-section-space: clamp(2rem, 4.5vh, 2.75rem);
+    --mobile-section-space: clamp(2rem, 4.5svh, 2.75rem);
+    --mobile-section-space-compact: clamp(1.5rem, 3vh, 2rem);
+    --mobile-section-space-compact: clamp(1.5rem, 3svh, 2rem);
+    --mobile-card-radius: 18px;
 }
 
 html,
@@ -76,9 +88,20 @@ body {
     overflow-x: clip;
     scrollbar-width: thin;
     scrollbar-color: var(--primary) transparent;
+
+    &::selection {
+        background: var(--primary);
+        color: var(--white);
+    }
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
+    min-height: 100%;
     font-family: var(--font-primary);
     color: var(--black);
     background: var(--background);
@@ -93,6 +116,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
+    text-wrap: balance;
 }
 
 a {
@@ -107,11 +131,37 @@ a {
 }
 
 button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: rgba(79, 70, 229, 0.12);
+}
+
+button,
+a {
+    touch-action: manipulation;
+}
+
+button,
 img {
     user-select: none;
 }
 
+:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.38);
+    outline-offset: 3px;
+}
+
 @media (max-width: 1024px) {
+
     html,
     body {
         overflow-x: hidden;
@@ -123,6 +173,7 @@ img {
 }
 
 @media (max-width: 640px) {
+
     html,
     body {
         overflow-x: hidden;
@@ -130,5 +181,20 @@ img {
 
     body {
         line-height: 1.625;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

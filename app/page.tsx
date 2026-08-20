@@ -17,11 +17,11 @@ export default function Home() {
             <Navbar />
             <Header />
             <Highlights />
+            <About />
             <OurImpact />
             <WhyUs />
             <HowItWorks />
             <AvailableRides />
-            <About />
             <Testimonials />
             <Stories />
             <Faq />

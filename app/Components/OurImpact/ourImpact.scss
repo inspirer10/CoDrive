@@ -1,19 +1,21 @@
 .our-impact {
-    padding: 5vh 0 10vh;
+    padding: var(--desktop-section-space-compact) 0 var(--desktop-section-space);
     background: var(--background);
+
     &__shell {
-        width: 90%; //98%
-        max-width: 1800px;
+        width: var(--desktop-content-width);
         margin: 0 auto;
         background: rgba(15, 23, 42, 0.04);
         border-radius: 1rem;
         padding: 5rem 2.5rem;
     }
+
     &__top {
         display: flex;
         align-items: flex-start;
         gap: 7vw;
     }
+
     &__eyebrow {
         font-family: var(--font-secondary);
         font-size: 1.375rem;
@@ -21,6 +23,7 @@
         color: var(--text-secondary);
         color: var(--primary-600);
     }
+
     &__title {
         max-width: 22ch;
         font-size: 4rem;
@@ -28,16 +31,19 @@
         line-height: 1.1;
         letter-spacing: -0.03em;
         color: var(--text-primary);
+
         span {
             color: var(--gray-400);
         }
     }
+
     &__gradient {
         background: linear-gradient(90deg, #6693e7 0%, #c67eea 50%, #f8b66a 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent !important;
     }
+
     &__cards {
         margin-top: 2.5rem;
         display: flex;
@@ -45,6 +51,7 @@
         gap: 1.5%;
         margin-left: 15%;
     }
+
     &__card {
         flex: 1 1 0;
         min-height: 20rem;
@@ -59,18 +66,23 @@
         position: relative;
         overflow: hidden;
         transition: .2s ease;
+
         &:hover,
         &:focus-within {
             border-color: var(--gray-300);
+
             .our-impact__metric-wrap {
                 transform: translateX(0.375rem);
             }
+
             .our-impact__metric {
                 color: var(--primary-hover);
             }
+
             .our-impact__description {
                 transform: translateY(-3.25rem);
             }
+
             .our-impact__button {
                 opacity: 1;
                 visibility: visible;
@@ -80,6 +92,7 @@
             }
         }
     }
+
     &__metric-wrap {
         display: flex;
         align-items: flex-start;
@@ -87,6 +100,7 @@
         line-height: 1;
         transition: .25s ease;
     }
+
     &__metric {
         font-family: var(--font-heading);
         font-size: 3.5rem;
@@ -95,12 +109,14 @@
         letter-spacing: -0.025em;
         transition: .25s ease;
     }
+
     &__suffix {
         font-family: var(--font-primary);
         font-size: 2rem;
         font-weight: 600;
         color: var(--gray-400);
     }
+
     &__description {
         margin-top: auto;
         font-family: var(--font-primary);
@@ -110,6 +126,7 @@
         max-width: 22ch;
         transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+
     &__button {
         position: absolute;
         left: 2rem;
@@ -129,6 +146,7 @@
         pointer-events: none;
         transform: translateY(1.25rem);
         transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, visibility 0.25s ease;
+
         &:hover {
             transition: .175s ease;
             background: var(--black);
@@ -136,12 +154,14 @@
             box-shadow: var(--shadow-sm);
             transform: translateY(-0.25rem);
         }
+
         &:focus-visible {
             outline: 2px solid var(--primary);
             outline-offset: 2px;
             background: var(--black);
             color: var(--white);
         }
+
         &:active {
             will-change: transform, background-color;
             transform: scale(0.98) !important;
@@ -155,32 +175,39 @@
 @media (max-width: 1536px) {
     .our-impact {
         &__shell {
-            width: 92.5%;
             padding: 4.5rem 2.25rem;
         }
+
         &__top {
             gap: 6vw;
         }
+
         &__title {
             font-size: 3.625rem;
         }
+
         &__cards {
             margin-left: 10%;
             gap: 1.25%;
         }
+
         &__card {
             min-height: 19rem;
             padding: 1.75rem 1.75rem 1.25rem;
         }
+
         &__metric {
             font-size: 3.25rem;
         }
+
         &__suffix {
             font-size: 1.75rem;
         }
+
         &__description {
             font-size: 1.25rem;
         }
+
         &__button {
             left: 1.75rem;
             bottom: 1.125rem;
@@ -191,30 +218,36 @@
 @media (max-width: 1440px) {
     .our-impact {
         &__shell {
-            width: 92.5%;
             padding: 4rem 2rem;
         }
+
         &__top {
             gap: 5vw;
         }
+
         &__title {
             font-size: 3.25rem;
             max-width: 26ch;
         }
+
         &__cards {
             margin-left: 8%;
             gap: 1.25%;
         }
+
         &__card {
             min-height: 18.5rem;
             padding: 1.625rem 1.625rem 1.25rem;
         }
+
         &__metric {
             font-size: 3rem;
         }
+
         &__suffix {
             font-size: 1.75rem;
         }
+
         &__description {
             font-size: 1.25rem;
         }
@@ -224,32 +257,39 @@
 @media (max-width: 1366px) {
     .our-impact {
         &__shell {
-            width: 93%;
             padding: 3.5rem 1.75rem;
         }
+
         &__top {
             gap: 4.5vw;
         }
+
         &__title {
             font-size: 3rem;
         }
+
         &__cards {
             margin-left: 5%;
             gap: 1%;
         }
+
         &__card {
             min-height: 17.5rem;
             padding: 1.5rem 1.5rem 1.125rem;
         }
+
         &__metric {
             font-size: 2.75rem;
         }
+
         &__suffix {
             font-size: 1.625rem;
         }
+
         &__description {
             font-size: 1.125rem;
         }
+
         &__button {
             left: 1.5rem;
             bottom: 1rem;
@@ -260,29 +300,35 @@
 @media (max-width: 1280px) {
     .our-impact {
         &__shell {
-            width: 94%;
             padding: 3rem 1.5rem;
         }
+
         &__top {
             gap: 4vw;
         }
+
         &__title {
             font-size: 2.75rem;
         }
+
         &__cards {
             margin-left: 0;
             gap: 1%;
         }
+
         &__card {
             min-height: 17rem;
             padding: 1.375rem 1.375rem 1rem;
         }
+
         &__metric {
             font-size: 2.625rem;
         }
+
         &__suffix {
             font-size: 1.5rem;
         }
+
         &__description {
             font-size: 1.125rem;
         }
@@ -295,10 +341,12 @@
             font-size: 3rem;
             max-width: 48rem;
         }
+
         &__cards {
             margin-left: 0;
             flex-wrap: wrap;
         }
+
         &__card {
             flex: 1 1 calc(50% - 0.5rem);
         }
@@ -307,53 +355,62 @@
 
 @media (max-width: 1024px) {
     .our-impact {
-        padding: 5vh 0 9vh;
         &__shell {
-            width: 94%;
             padding: 2.5rem 1.25rem;
         }
+
         &__top {
             flex-direction: column;
             gap: 0.75rem;
         }
+
         &__eyebrow {
             font-size: 1rem;
         }
+
         &__title {
             font-size: 2.5rem;
             max-width: 24ch;
         }
+
         &__cards {
             margin-top: 1.75rem;
             gap: 0.625rem;
             margin-left: 0;
             flex-wrap: wrap;
         }
+
         &__card {
             flex: 1 1 calc(50% - 0.375rem);
             min-height: 15.5rem;
             padding: 1.25rem 1.25rem 1rem;
             gap: 1rem;
+
             &:hover,
             &:focus-within {
                 .our-impact__metric-wrap {
                     transform: none;
                 }
+
                 .our-impact__description {
                     transform: none;
                 }
             }
         }
+
         &__metric {
             font-size: 2.5rem;
         }
+
         &__suffix {
             font-size: 1.25rem;
         }
+
         &__description {
             font-size: 1rem;
             max-width: 100%;
         }
+
         &__button {
             position: static;
             margin-top: 0.25rem;
@@ -368,84 +425,119 @@
 
 @media (max-width: 768px) {
     .our-impact {
-        padding: 4vh 0 8vh;
+        padding: var(--mobile-section-space) 0;
+
         &__shell {
-            width: 94%;
-            padding: 1.5rem;
+            width: calc(100% - (var(--mobile-gutter) * 2));
+            padding: clamp(1.25rem, 4vw, 2rem);
+            border-radius: 1.25rem;
         }
+
         &__panel {
-            padding: 1.5rem;
-            gap: 2rem;
+            padding: 0;
         }
+
         &__top {
-            flex-direction: column;
-            gap: 1rem;
+            gap: 0.625rem;
         }
+
         &__eyebrow {
             width: auto;
-            font-size: 1rem;
+            font-size: 0.8125rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
         }
+
         &__title {
-            font-size: 2.25rem;
+            max-width: 25ch;
+            font-size: clamp(1.75rem, 5.5vw, 2.125rem);
+            line-height: 1.12;
         }
+
         &__cards {
             flex-direction: column;
+            margin-top: 1.5rem;
+            gap: 0.875rem;
         }
+
         &__card {
-            min-height: 14rem;
-            padding: 1.5rem;
+            min-height: 0;
+            padding: 1.25rem;
+            gap: 0.75rem;
+            border-radius: var(--mobile-card-radius);
         }
+
         &__metric {
-            font-size: 3rem;
+            font-size: clamp(2.25rem, 7vw, 2.75rem);
         }
+
         &__suffix {
-            font-size: 1.5rem;
+            font-size: clamp(1.125rem, 3.5vw, 1.375rem);
         }
+
         &__description {
-            font-size: 1.25rem;
+            margin-top: 0.375rem;
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        &__button {
+            min-height: 44px;
+            margin-top: 0.25rem;
+            padding: 0.625rem 1rem;
         }
     }
 }
 
 @media (max-width: 640px) {
     .our-impact {
-        padding: 3.5vh 0 7vh;
         &__shell {
-            width: 92.5%;
-            padding: 1.25rem 0.75rem;
+            width: calc(100% - (var(--mobile-gutter) * 2));
+            padding: 1.25rem 1rem;
         }
+
         &__top {
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
+
         &__eyebrow {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
         }
+
         &__title {
             font-size: 1.75rem;
             max-width: 100%;
         }
+
         &__cards {
-            margin-top: 1.25rem;
-            gap: 0.625rem;
-        }
-        &__card {
-            min-height: 13.5rem;
-            padding: 1.125rem 0.75rem 0.75rem;
+            margin-top: 1.375rem;
             gap: 0.75rem;
         }
+
+        &__card {
+            min-height: 0;
+            padding: 1.125rem;
+            gap: 0.625rem;
+        }
+
         &__metric {
-            font-size: 2rem;
+            font-size: 2.25rem;
         }
+
         &__suffix {
-            font-size: 1rem;
+            font-size: 1.125rem;
         }
+
         &__description {
-            font-size: 0.875rem;
-            line-height: 1.625;
+            margin-top: 0.25rem;
+            font-size: 0.9375rem;
+            line-height: 1.55;
         }
+
         &__button {
-            margin-top: 0.125rem;
-            padding: 0.625rem 0.75rem;
+            margin-top: 0.25rem;
+            min-height: 44px;
+            padding: 0.625rem 1rem;
             font-size: 0.875rem;
             align-self: stretch;
             text-align: center;

@@ -52,7 +52,7 @@ const trustHighlights = [
 
 function About() {
     return (
-        <section className='about'>
+        <section className='about' id='about'>
             <div className='about__container'>
                 <div className='about__layout'>
                     <div className='about__intro'>

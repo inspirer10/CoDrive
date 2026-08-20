@@ -11,12 +11,12 @@ function Header() {
             <div className='header__container'>
                 <div className='header__card'>
                     <div className='header__content'>
-                        <Reveal delay={0.1}>
+                        <Reveal delay={0.02}>
                             <span className='header__eyebrow'>
                                 CoDrive • Commute daily rides and savings
                             </span>
                         </Reveal>
-                        <Reveal delay={0.225}>
+                        <Reveal delay={0.12}>
                             <h1>
                                 Meet{' '}
                                 <span className='company-name'>CoDrive</span>:
@@ -25,7 +25,7 @@ function Header() {
                                 <span>split the costs</span>
                             </h1>
                         </Reveal>
-                        <Reveal delay={0.325}>
+                        <Reveal delay={0.22}>
                             <p className='header__lead'>
                                 Find or post commute rides in seconds, match
                                 with people on your route, and keep every trip
@@ -34,7 +34,7 @@ function Header() {
                             </p>
                         </Reveal>
 
-                        <Reveal delay={0.425}>
+                        <Reveal delay={0.32} width='100%'>
                             <div className='header__actions'>
                                 <button className='btn btn--primary'>
                                     Find a ride

@@ -1,9 +1,10 @@
 .about {
-    padding: 7.5vh 0 10vh;
+    padding: var(--desktop-section-space) 0;
     background: var(--background);
     color: var(--text-primary);
     position: relative;
     overflow: hidden;
+
     &::before {
         content: '';
         position: absolute;
@@ -11,10 +12,11 @@
         right: -20%;
         width: 60%;
         height: 200%;
-        background: radial-gradient( ellipse, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+        background: radial-gradient(ellipse, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
     }
+
     &::after {
         content: '';
         position: absolute;
@@ -23,25 +25,28 @@
         pointer-events: none;
         z-index: 0;
     }
+
     &__container {
-        width: 85%;
-        max-width: 1800px;
+        width: var(--desktop-content-width);
         margin: 0 auto;
         position: relative;
         z-index: 1;
     }
+
     &__layout {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 3rem;
     }
+
     &__intro {
         flex: 1.1;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
     }
+
     &__eyebrow {
         font-family: var(--font-secondary);
         font-size: 1rem;
@@ -50,6 +55,7 @@
         text-transform: uppercase;
         color: var(--primary);
     }
+
     h2 {
         font-size: 2.625rem;
         line-height: 1.1;
@@ -57,6 +63,7 @@
         margin: 0;
         color: var(--text-primary);
     }
+
     &__lead {
         font-size: 1.25rem;
         line-height: 1.6;
@@ -64,11 +71,13 @@
         text-wrap: balance;
         color: var(--text-muted);
     }
+
     &__metrics {
         display: flex;
         flex-wrap: wrap;
         gap: 0.625rem;
     }
+
     &__metric {
         flex: 1 1 200px;
         display: flex;
@@ -82,21 +91,25 @@
         border: 1px solid var(--border-light);
         transition: 0.25s ease;
         box-shadow: var(--shadow-sm);
+
         &:hover {
             background: var(--gray-50);
             transform: translateY(-3px);
         }
+
         strong {
             display: block;
             font-size: 1.25rem;
             color: var(--text-primary);
         }
+
         span {
             display: block;
             font-size: 0.875rem;
             color: var(--text-muted);
         }
     }
+
     &__metric-icon {
         width: 42px;
         height: 42px;
@@ -110,16 +123,19 @@
         flex-shrink: 0;
         line-height: 0;
     }
+
     &__metric-icon svg {
         width: 1.5rem;
         height: 1.5rem;
     }
+
     &__actions {
         display: flex;
         align-items: center;
         gap: 1rem;
         flex-wrap: wrap;
     }
+
     &__primary {
         background: var(--primary);
         color: var(--white);
@@ -135,17 +151,20 @@
         cursor: pointer;
         transition: 0.25s ease;
         box-shadow: 0 12px 24px rgba(79, 70, 229, 0.25);
+
         &:hover {
             transform: translateY(-2px);
             background: var(--primary-hover);
             box-shadow: 0 16px 32px rgba(79, 70, 229, 0.35);
         }
+
         &:active {
             transform: translateY(0) scale(0.98);
             box-shadow: 0 8px 16px rgba(79, 70, 229, 0.25);
             transition: 0.1s ease;
         }
     }
+
     &__ghost {
         background: transparent;
         color: var(--text-secondary);
@@ -160,17 +179,20 @@
         justify-content: center;
         cursor: pointer;
         transition: 0.25s ease;
+
         &:hover {
             border-color: var(--primary);
             color: var(--primary);
             background: var(--surface-primary);
             transform: translateY(-2px);
         }
+
         &:active {
             transform: translateY(0) scale(0.98);
             transition: 0.1s ease;
         }
     }
+
     &__panel {
         flex: 1;
         background: var(--white);
@@ -183,11 +205,13 @@
         gap: 1.5rem;
         border: 1px solid var(--border-light);
     }
+
     &__panel-header {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
     }
+
     &__panel-eyebrow {
         font-family: var(--font-secondary);
         font-size: 15px;
@@ -196,21 +220,25 @@
         text-transform: uppercase;
         color: var(--accent-600);
     }
+
     &__panel-header h3 {
         font-size: 1.625rem;
         line-height: 1.2;
         color: var(--text-primary);
     }
+
     &__panel-header p {
         font-size: 1rem;
         color: var(--text-muted);
         line-height: 1.6;
     }
+
     &__panel-list {
         display: flex;
         flex-direction: column;
         gap: 1rem;
     }
+
     &__panel-item {
         display: flex;
         align-items: center;
@@ -220,11 +248,13 @@
         background: var(--gray-50);
         border: 1px solid var(--border-light);
         transition: 0.2s ease;
+
         &:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-sm);
         }
     }
+
     &__panel-icon {
         width: 42px;
         height: 42px;
@@ -238,21 +268,25 @@
         flex-shrink: 0;
         line-height: 0;
     }
+
     &__panel-icon svg {
         display: block;
         width: 1.25em;
         height: 1.25em;
     }
+
     &__panel-item h4 {
         font-size: 1.125rem;
         color: var(--text-primary);
         margin-bottom: 0.25rem;
     }
+
     &__panel-item p {
         font-size: 1rem;
         color: var(--text-muted);
         line-height: 1.5;
     }
+
     &__note {
         display: flex;
         align-items: center;
@@ -264,6 +298,7 @@
         color: var(--text-secondary);
         font-size: 1rem;
     }
+
     &__note svg {
         color: var(--primary);
         font-size: 1.25rem;
@@ -273,34 +308,39 @@
 
 @media (max-width: 1536px) {
     .about {
-        &__container {
-            width: 87.5%;
-        }
         &__layout {
             gap: 2.5rem;
         }
+
         h2 {
             font-size: 2.5rem;
         }
+
         &__lead {
             font-size: 1.125rem;
         }
+
         &__metric {
             padding: 0.75rem;
         }
+
         &__metric-icon {
             width: 40px;
             height: 40px;
         }
+
         &__panel {
             padding: 1.75rem;
         }
+
         &__panel-header h3 {
             font-size: 1.5rem;
         }
+
         &__panel-item {
             padding: 0.75rem 0.875rem;
         }
+
         &__note {
             font-size: 0.875rem;
         }
@@ -309,40 +349,47 @@
 
 @media (max-width: 1440px) {
     .about {
-        &__container {
-            width: 90%;
-        }
         &__layout {
             gap: 2.25rem;
         }
+
         h2 {
             font-size: 2.25rem;
         }
+
         &__lead {
             font-size: 1.125rem;
         }
+
         &__metrics {
             gap: 0.5rem;
         }
+
         &__metric strong {
             font-size: 1.125rem;
         }
+
         &__metric-icon {
             width: 38px;
             height: 38px;
         }
+
         &__panel {
             padding: 1.625rem;
         }
+
         &__panel-header h3 {
             font-size: 1.5rem;
         }
+
         &__panel-item h4 {
             font-size: 1rem;
         }
+
         &__panel-item p {
             font-size: 1rem;
         }
+
         &__primary,
         &__ghost {
             font-size: 1rem;
@@ -353,24 +400,26 @@
 
 @media (max-width: 1366px) {
     .about {
-        &__container {
-            width: 91%;
-        }
         &__layout {
             gap: 2rem;
         }
+
         h2 {
             font-size: 2.25rem;
         }
+
         &__lead {
             font-size: 1rem;
         }
+
         &__panel {
             padding: 1.5rem;
         }
+
         &__panel-list {
             gap: 0.875rem;
         }
+
         &__note {
             font-size: 0.875rem;
         }
@@ -379,36 +428,41 @@
 
 @media (max-width: 1280px) {
     .about {
-        &__container {
-            width: 92.5%;
-        }
         &__layout {
             gap: 1.75rem;
         }
+
         h2 {
             font-size: 2rem;
         }
+
         &__lead {
             font-size: 1rem;
         }
+
         &__metrics {
             gap: 0.5rem;
         }
+
         &__metric {
             flex: 1 1 180px;
             padding: 0.75rem 0.625rem;
         }
+
         &__metric strong {
             font-size: 1rem;
         }
+
         &__primary,
         &__ghost {
             font-size: 1rem;
             padding: 0.5rem 1.375rem;
         }
+
         &__panel-item {
             padding: 0.75rem 0.875rem;
         }
+
         &__note {
             font-size: 0.875rem;
         }
@@ -421,9 +475,11 @@
             flex-direction: column;
             align-items: stretch;
         }
+
         &__lead {
             max-width: 60ch;
         }
+
         &__panel {
             width: 100%;
         }
@@ -432,37 +488,183 @@
 
 @media (max-width: 768px) {
     .about {
-        padding: 9vh 0;
+        padding: var(--mobile-section-space) 0;
+
+        &__container {
+            width: calc(100% - (var(--mobile-gutter) * 2));
+        }
+
+        &__layout {
+            gap: 2.5rem;
+        }
+
         &__intro {
             align-items: center;
             text-align: center;
+            gap: 1.25rem;
         }
+
         &__metrics {
             justify-content: center;
         }
+
         &__actions {
             justify-content: center;
         }
+
+        &__primary,
+        &__ghost {
+            min-height: 2.75rem;
+        }
+
         h2 {
-            font-size: 2.125rem;
+            max-width: 18ch;
+            font-size: 1.75rem;
+            line-height: 1.15;
         }
     }
 }
 
 @media (max-width: 640px) {
     .about {
+        padding: var(--mobile-section-space) 0;
+
         &__container {
-            width: 90%;
+            width: calc(100% - (var(--mobile-gutter) * 2));
         }
+
+        &__layout {
+            gap: 2rem;
+        }
+
+        &__intro {
+            gap: 1rem;
+        }
+
+        &__eyebrow {
+            font-size: 0.875rem;
+            letter-spacing: 0.16em;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            text-wrap: balance;
+        }
+
+        &__lead {
+            max-width: 34ch;
+            font-size: 0.9375rem;
+            line-height: 1.625;
+        }
+
         &__metrics {
             flex-direction: column;
+            align-items: stretch;
+            gap: 0.75rem;
+            width: 100%;
         }
+
+        &__metric {
+            flex: 0 0 auto;
+            width: 100%;
+            min-height: 0;
+            padding: 0.875rem 0.75rem;
+            gap: 0.75rem;
+        }
+
+        &__metric-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__metric strong {
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+
+        &__metric>div>span {
+            line-height: 1.45;
+        }
+
+        &__actions {
+            width: 100%;
+            gap: 0.75rem;
+        }
+
         &__primary,
         &__ghost {
             width: 100%;
+            min-height: 2.75rem;
+            font-size: 0.875rem;
+            padding: 0.625rem 1rem;
         }
+
         &__panel {
-            padding: 1.5rem;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: var(--mobile-card-radius);
+        }
+
+        &__panel-eyebrow {
+            font-size: 0.75rem;
+        }
+
+        &__panel-header h3 {
+            font-size: 1.375rem;
+        }
+
+        &__panel-header p,
+        &__panel-item p,
+        &__note {
+            font-size: 0.875rem;
+        }
+
+        &__panel-header p {
+            line-height: 1.625;
+        }
+
+        &__panel-list {
+            gap: 0.75rem;
+        }
+
+        &__panel-item {
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.875rem 0.75rem;
+        }
+
+        &__panel-item h4 {
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        &__panel-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__note {
+            align-items: center;
+            padding: 0.75rem;
+        }
+
+        &__note svg {
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+    }
+}
+
+@media (hover: none) {
+    .about {
+        &__metric:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        &__panel-item:hover {
+            transform: none;
+            box-shadow: none;
         }
     }
 }
