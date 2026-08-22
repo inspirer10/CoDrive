@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, MouseEvent, useState } from 'react';
 import { BsCarFront, BsEnvelope, BsGeoAlt, BsTelephone } from 'react-icons/bs';
 import {
     FiArrowUpRight,
@@ -11,6 +11,7 @@ import {
     FiYoutube,
 } from 'react-icons/fi';
 import Image from 'next/image';
+import { useSectionNavigation } from '../../hooks/useSectionNavigation';
 
 import './footer.scss';
 
@@ -21,6 +22,12 @@ const subscriberStorageKey = 'codrive-newsletter-subscribers';
 function Footer() {
     const [newsletterEmail, setNewsletterEmail] = useState('');
     const [newsletterMessage, setNewsletterMessage] = useState('');
+    const scrollToSection = useSectionNavigation();
+
+    const handleContactClick = (event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        scrollToSection('contact');
+    };
 
     const handleNewsletterSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -193,7 +200,11 @@ function Footer() {
                             <a className='footer__link' href='#stories'>
                                 Blog
                             </a>
-                            <a className='footer__link' href='#contact'>
+                            <a
+                                className='footer__link'
+                                href='#contact'
+                                onClick={handleContactClick}
+                            >
                                 Contact
                             </a>
                             <a

@@ -18,7 +18,6 @@ function LenisProvider({ children }: LenisProviderProps) {
 
     useEffect(() => {
         const lenisInstance = new Lenis();
-        setLenis(lenisInstance);
 
         let rafId = 0;
 
@@ -27,7 +26,10 @@ function LenisProvider({ children }: LenisProviderProps) {
             rafId = requestAnimationFrame(raf);
         };
 
-        rafId = requestAnimationFrame(raf);
+        rafId = requestAnimationFrame((time) => {
+            setLenis(lenisInstance);
+            raf(time);
+        });
 
         return () => {
             cancelAnimationFrame(rafId);

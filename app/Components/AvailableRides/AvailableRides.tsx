@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import Image from 'next/image';
 import {
     FiMapPin,
     FiClock,
@@ -404,9 +405,12 @@ function AvailableRides() {
                             <div className='ride-card__driver'>
                                 <div className='ride-card__avatar'>
                                     {ride.driver.avatar ? (
-                                        <img
+                                        <Image
                                             src={ride.driver.avatar}
                                             alt={ride.driver.name}
+                                            width={100}
+                                            height={100}
+                                            sizes='46px'
                                         />
                                     ) : (
                                         <span className='ride-card__avatar-placeholder'>

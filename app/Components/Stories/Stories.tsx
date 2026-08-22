@@ -80,7 +80,7 @@ function Stories() {
 
                 <div className='stories__actions'>
                     <button className='stories__view' type='button'>
-                        View all
+                        View all <FiArrowUpRight aria-hidden='true' />
                     </button>
                 </div>
             </div>

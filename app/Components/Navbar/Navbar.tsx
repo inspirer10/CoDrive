@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { BsCarFront } from 'react-icons/bs';
 import { FiChevronRight, FiMenu, FiX } from 'react-icons/fi';
 import { useLenis } from '../LenisProvider/LenisProvider';
+import { useSectionNavigation } from '../../hooks/useSectionNavigation';
 import PostRideModal from '../PostRideModal/PostRideModal';
 
 import './navbar.scss';
@@ -18,11 +19,14 @@ const navItems = [
 
 function Navbar() {
     const [isHidden, setIsHidden] = useState(false);
+    const [isOverDarkSection, setIsOverDarkSection] = useState(false);
     const [isPostRideOpen, setIsPostRideOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const lastScrollY = useRef(0);
+    const navbarRef = useRef<HTMLElement>(null);
     const menuButtonRef = useRef<HTMLButtonElement>(null);
     const lenis = useLenis();
+    const scrollToSection = useSectionNavigation();
     const openPostRideModal = useCallback(() => setIsPostRideOpen(true), []);
     const closePostRideModal = useCallback(() => setIsPostRideOpen(false), []);
     const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
@@ -33,15 +37,7 @@ function Navbar() {
 
     const handleSectionRouting = (section: string) => {
         closeMobileMenu();
-        if (lenis) {
-            lenis.scrollTo(`#${section}`, {
-                duration: 1.2,
-            });
-        } else {
-            document
-                .getElementById(section)
-                ?.scrollIntoView({ behavior: 'smooth' });
-        }
+        scrollToSection(section);
     };
 
     const handleScrollToTop = () => {
@@ -52,6 +48,53 @@ function Navbar() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
+
+    useEffect(() => {
+        let animationFrameId = 0;
+
+        const updateNavbarContrast = () => {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(() => {
+                const navbar = navbarRef.current;
+                const faqSection = document.getElementById('faq');
+
+                if (!navbar || !faqSection) {
+                    setIsOverDarkSection(false);
+                    return;
+                }
+
+                const faqRect = faqSection.getBoundingClientRect();
+                const navbarTop = navbar.offsetTop;
+                const navbarBottom = navbarTop + navbar.offsetHeight;
+
+                setIsOverDarkSection(
+                    faqRect.top < navbarBottom &&
+                        faqRect.bottom > navbarTop,
+                );
+            });
+        };
+
+        const faqSection = document.getElementById('faq');
+        const resizeObserver = faqSection
+            ? new ResizeObserver(updateNavbarContrast)
+            : null;
+
+        if (faqSection) {
+            resizeObserver?.observe(faqSection);
+        }
+        updateNavbarContrast();
+        window.addEventListener('scroll', updateNavbarContrast, {
+            passive: true,
+        });
+        window.addEventListener('resize', updateNavbarContrast);
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+            resizeObserver?.disconnect();
+            window.removeEventListener('scroll', updateNavbarContrast);
+            window.removeEventListener('resize', updateNavbarContrast);
+        };
+    }, []);
 
     useEffect(() => {
         lastScrollY.current = window.scrollY;
@@ -118,9 +161,17 @@ function Navbar() {
         closeMobileMenu();
     };
 
+    const navbarClassName = [
+        'navbar',
+        isHidden ? 'nav--hidden' : '',
+        isOverDarkSection ? 'navbar--over-dark' : '',
+    ]
+        .filter(Boolean)
+        .join(' ');
+
     return (
         <>
-            <nav className={isHidden ? 'nav--hidden navbar' : 'navbar'}>
+            <nav ref={navbarRef} className={navbarClassName}>
                 <div className='navbar__left'>
                     <button
                         className='logo'

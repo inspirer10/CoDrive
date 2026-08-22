@@ -1,5 +1,10 @@
 import React from 'react';
-import { FiArrowUpRight, FiBox } from 'react-icons/fi';
+import {
+    FiArrowUpRight,
+    FiFilePlus,
+    FiShield,
+    FiSliders,
+} from 'react-icons/fi';
 import { Reveal } from '../Reveal/Reveal';
 
 import './whyUs.scss';
@@ -11,6 +16,7 @@ const features = [
             'Set the route, times, and weekdays. Add a photo and your contact details.',
         link: 'Learn more',
         image: '/features1.jpg',
+        icon: FiFilePlus,
     },
     {
         title: 'Filter rides by your needs',
@@ -18,6 +24,7 @@ const features = [
             'Search by route, departure time, and weekdays. Find the perfect ride.',
         link: 'Learn more',
         image: '/features2.jpg',
+        icon: FiSliders,
     },
     {
         title: 'Secure connections between drivers',
@@ -25,6 +32,7 @@ const features = [
             'Profile verification and user ratings. Share the road with trusted people.',
         link: 'Learn more',
         image: '/features3.jpg',
+        icon: FiShield,
     },
 ];
 
@@ -43,8 +51,13 @@ function WhyUs() {
                 </Reveal>
 
                 <div className='why-us__cards'>
-                    {features.map(({ title, description, link, image }, index) => (
-                        <Reveal key={title} delay={0.2 + index * 0.1} width='100%' className='why-us__card-reveal'>
+                    {features.map(({ title, description, link, image, icon: Icon }, index) => (
+                        <Reveal
+                            key={title}
+                            delay={0.2 + index * 0.1}
+                            width='100%'
+                            className='why-us__card-reveal'
+                        >
                             <article
                                 className='why-us__card'
                                 style={
@@ -55,7 +68,7 @@ function WhyUs() {
                             >
                                 <div className='why-us__card-inner'>
                                     <span className='why-us__icon'>
-                                        <FiBox />
+                                        <Icon aria-hidden='true' />
                                     </span>
                                     <h3 className='why-us__title'>{title}</h3>
                                     <p className='why-us__text'>{description}</p>

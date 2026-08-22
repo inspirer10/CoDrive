@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { type MouseEvent, useState } from 'react';
 import { FiArrowUpRight, FiMinus, FiPlus } from 'react-icons/fi';
+import { useSectionNavigation } from '../../hooks/useSectionNavigation';
 import './faq.scss';
 
 const faqData = [
@@ -29,11 +30,17 @@ const faqData = [
 
 function Faq() {
     const [openItem, setOpenItem] = useState<number | null>(0);
+    const scrollToSection = useSectionNavigation();
 
     const toggleItem = (index: number) => {
         setOpenItem((currentItem) =>
             currentItem === index ? null : index,
         );
+    };
+
+    const handleContactClick = (event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        scrollToSection('contact');
     };
 
     return (
@@ -45,7 +52,11 @@ function Faq() {
                     <p className='subtitle'>
                         Find answers to common questions about using CoDrive
                     </p>
-                    <a className='btn' href='#contact'>
+                    <a
+                        className='btn'
+                        href='#contact'
+                        onClick={handleContactClick}
+                    >
                         Contact us
                         <FiArrowUpRight aria-hidden='true' />
                     </a>
