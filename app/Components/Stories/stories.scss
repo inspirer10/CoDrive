@@ -191,25 +191,25 @@
         font-weight: 600;
         min-width: 150px;
         font-size: 1rem;
-        padding: 0.625rem 1.75rem;
-        border-radius: 999px;
+        padding: 0.75rem 2rem;
+        border-radius: 99px;
         cursor: pointer;
-        transition: 0.2s ease;
+        transition: 0.225s ease;
         box-shadow: var(--shadow-sm);
 
         svg {
             font-size: 1rem;
-            transition: transform 0.2s ease;
+            transition: transform 0.225s ease;
         }
 
         &:hover {
             border-color: var(--border-default);
             color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            // transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
 
             svg {
-                transform: translate(3px, -2px);
+                transform: translate(1px, -1px);
             }
         }
 
@@ -411,7 +411,7 @@
 
         &__subtitle {
             max-width: 36ch;
-            font-size: 0.9375rem;
+            font-size: 1rem;
             line-height: 1.6;
         }
 
@@ -463,7 +463,7 @@
         }
 
         &__subtitle {
-            font-size: 0.9375rem;
+            font-size: 1rem;
             max-width: 34ch;
         }
 
@@ -479,14 +479,14 @@
         }
 
         &__title {
-            font-size: 1.0625rem;
+            font-size: 1rem;
             text-align: left;
             padding: 0 0.75rem;
             line-height: 1.4;
         }
 
         &__text {
-            font-size: 0.9375rem;
+            font-size: 1rem;
             text-align: left;
             padding: 0 0.75rem;
             line-height: 1.625;
@@ -497,7 +497,7 @@
             justify-content: center;
             padding: 0 0.75rem;
             margin-top: 1rem;
-            font-size: 0.9375rem;
+            font-size: 1rem;
         }
 
         &__actions {

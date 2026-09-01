@@ -112,7 +112,7 @@
             position: absolute;
             left: 1rem;
             right: 1rem;
-            bottom: 0.3rem;
+            bottom: 0.25rem;
             height: 2px;
             border-radius: 999px;
             background: var(--primary);
@@ -290,7 +290,7 @@
 
         &__link-btn {
             font-size: 1rem;
-            padding: 0.375rem 0.95rem;
+            padding: 0.375rem 1rem;
         }
 
         &__login-btn {
@@ -365,7 +365,7 @@
 
 @media (max-width: 1080px) {
     .navbar {
-        padding: 0.625rem 0.82rem;
+        padding: 0.625rem 0.875rem;
 
         &__left {
             gap: 1rem;
@@ -527,7 +527,7 @@
                 color: var(--gray-700);
                 padding: 0.625rem 0.875rem;
                 font-family: var(--font-heading);
-                font-size: 0.9375rem;
+                font-size: 1rem;
                 font-weight: 600;
                 cursor: pointer;
                 transition: 0.2s ease;
@@ -657,7 +657,7 @@
         &__links {
             li button {
                 padding: 0.625rem 0.875rem;
-                font-size: 0.9375rem;
+                font-size: 1rem;
             }
         }
     }

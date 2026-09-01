@@ -83,7 +83,7 @@
         span {
             margin-bottom: 0.25rem;
             font-family: var(--font-secondary);
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             font-weight: 600;
             line-height: 1.4;
             letter-spacing: 0.12em;
@@ -93,7 +93,7 @@
 
         strong {
             font-family: var(--font-heading);
-            font-size: 1.0625rem;
+            font-size: 1.125rem;
             font-weight: 600;
             line-height: 1.35;
             letter-spacing: -0.01em;
@@ -114,30 +114,38 @@
     }
 
     &__eyebrow {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 0.75rem;
         margin-bottom: 1rem;
         font-family: var(--font-secondary);
-        font-size: 0.8125rem;
+        font-size: 0.875rem;
         font-weight: 600;
         line-height: 1.4;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
         color: var(--primary-600);
 
         &::before {
             content: '';
-            width: 2.5rem;
-            height: 1px;
+            width: clamp(3rem, 5vw, 4.5rem);
+            height: 2px;
             flex-shrink: 0;
-            background: var(--primary-400);
+            border-radius: 999px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(129, 140, 248, 0.2) 28%,
+                var(--primary-400) 72%,
+                var(--primary) 100%
+            );
+            box-shadow: 0 0 0.75rem rgba(79, 70, 229, 0.18);
         }
     }
 
     h2 {
-        max-width: 12ch;
-        font-size: clamp(2.5rem, 3.4vw, 3.75rem);
+        max-width: 22ch;
+        font-size: clamp(2.5rem, 3.5vw, 3.75rem);
         font-weight: 600;
         line-height: 1.04;
         letter-spacing: -0.045em;
@@ -146,9 +154,9 @@
 
     &__lead {
         max-width: 48ch;
-        margin-top: 1rem;
-        font-size: 1.0625rem;
-        line-height: 1.65;
+        margin-top: 1.125rem;
+        font-size: 1.125rem;
+        line-height: 1.6;
         color: var(--text-muted);
         text-wrap: pretty;
     }
@@ -166,28 +174,28 @@
         position: relative;
         width: 100%;
         display: flex;
-        align-items: start;
+        align-items: center;
         gap: 1rem;
         padding: 1.25rem 0;
+        padding-left: 1rem;
         border-bottom: 1px solid var(--border-default);
-        transition: background 0.24s ease;
+        transition: background 0.225s ease-in-out;
 
         &::before {
             content: '';
             position: absolute;
             top: 0;
             bottom: 0;
-            left: -1rem;
-            width: 2px;
-            border-radius: 99px;
+            left: 0;
+            width: 3px;
             background: var(--primary);
             transform: scaleY(0);
             transform-origin: center;
-            transition: transform 0.24s ease;
+            transition: transform 0.2s ease;
         }
 
         &:hover {
-            background: linear-gradient(90deg, rgba(79, 70, 229, 0.055), transparent 70%);
+            background: linear-gradient(90deg, rgba(79, 70, 229, 0.075), transparent 90%);
 
             &::before {
                 transform: scaleY(1);
@@ -208,12 +216,11 @@
     &__index {
         width: 2rem;
         flex: 0 0 2rem;
-        padding-top: 0.9rem;
         font-family: var(--font-secondary);
-        font-size: 0.6875rem;
+        font-size: 0.75rem;
         font-weight: 600;
         line-height: 1;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.05em;
         color: var(--gray-400);
     }
 
@@ -239,10 +246,11 @@
     &__copy {
         flex: 1 1 auto;
         min-width: 0;
+
     }
 
     &__title {
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.25rem;
         font-family: var(--font-heading);
         font-size: 1.25rem;
         font-weight: 600;
@@ -254,7 +262,7 @@
 
     &__text {
         max-width: 50ch;
-        font-size: 0.9375rem;
+        font-size: 15px;
         line-height: 1.6;
         color: var(--text-muted);
         text-wrap: pretty;
@@ -270,8 +278,8 @@
     &__primary,
     &__link {
         min-height: 3rem;
-        padding: 0.6875rem 1.5rem;
-        border-radius: 999px;
+        padding: 0.75rem 1.5rem;
+        border-radius: 99px;
         font-family: var(--font-heading);
         font-size: 1rem;
         font-weight: 600;
@@ -279,7 +287,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     &__primary {
@@ -379,7 +387,7 @@
         &__index {
             width: 1.75rem;
             flex-basis: 1.75rem;
-            padding-top: 0.8rem;
+            padding-top: 0.75rem;
         }
 
         &__icon {
@@ -484,7 +492,7 @@
         &__lead {
             margin-inline: auto;
             margin-top: 0.75rem;
-            font-size: 0.9375rem;
+            font-size: 1rem;
             line-height: 1.6;
         }
 
@@ -493,11 +501,11 @@
         }
 
         &__title {
-            font-size: 1.0625rem;
+            font-size: 1rem;
         }
 
         &__text {
-            font-size: 0.9375rem;
+            font-size: 1rem;
         }
 
         &__primary,
@@ -524,7 +532,7 @@
             }
 
             strong {
-                font-size: 0.9375rem;
+                font-size: 1rem;
             }
         }
 
@@ -533,7 +541,7 @@
             gap: 0.625rem;
 
             &::before {
-                width: 1.75rem;
+                width: 2.125rem;
             }
         }
 
@@ -552,7 +560,7 @@
         &__index {
             width: 1.5rem;
             flex-basis: 1.5rem;
-            padding-top: 0.8rem;
+            padding-top: 0.75rem;
         }
 
         &__actions {

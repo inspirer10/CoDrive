@@ -50,9 +50,18 @@
             text-transform: uppercase;
 
             &::before {
-                width: 2rem;
-                height: 1px;
-                background: currentcolor;
+                width: clamp(2.5rem, 4vw, 3.75rem);
+                height: 2px;
+                flex-shrink: 0;
+                border-radius: 999px;
+                background: linear-gradient(
+                    90deg,
+                    transparent 0%,
+                    rgba(165, 180, 252, 0.2) 28%,
+                    var(--primary-400) 72%,
+                    var(--primary-300) 100%
+                );
+                box-shadow: 0 0 0.75rem rgba(129, 140, 248, 0.22);
                 content: '';
             }
         }
@@ -71,7 +80,7 @@
             max-width: 34ch;
             margin-bottom: 2rem;
             color: #cbd5e1;
-            font-size: 1.0625rem;
+            font-size: 1rem;
             line-height: 1.65;
             text-wrap: pretty;
         }
@@ -88,7 +97,7 @@
             color: var(--primary-900);
             background: #f8fafc;
             box-shadow: 0 10px 30px rgba(3, 7, 18, 0.2);
-            font-size: 0.9375rem;
+            font-size: 1rem;
             font-weight: 600;
             font-family: var(--font-heading);
             cursor: pointer;
@@ -217,7 +226,7 @@
         padding: 0 4rem 1.5rem 0;
         color: #cbd5e1;
         font-family: var(--font-secondary);
-        font-size: 0.9375rem;
+        font-size: 1rem;
         line-height: 1.75;
         text-wrap: pretty;
     }
@@ -320,7 +329,7 @@
             .subtitle {
                 max-width: 36ch;
                 margin-bottom: 1.5rem;
-                font-size: 0.9375rem;
+                font-size: 1rem;
                 line-height: 1.6;
             }
 
@@ -354,7 +363,7 @@
 
         &__answer {
             padding: 0 0 1.125rem;
-            font-size: 0.9375rem;
+            font-size: 1rem;
             line-height: 1.65;
         }
     }
@@ -392,7 +401,7 @@
             button {
                 gap: 0.75rem;
                 padding: 1rem 0;
-                font-size: 0.9375rem;
+                font-size: 1rem;
             }
         }
 
